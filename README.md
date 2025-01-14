@@ -1,16 +1,16 @@
 # Configuration files
 
-A compact backup for my config files for multiple applications
+A compact backup for my Config files for multiple applications
 
-## Copy configuration
+## Copy Configuration
 
 ```bash
-git clone https://github.com/paualberti/config ~/config
-cd ~/config
+git clone https://github.com/paualberti/Config ~/Config
+cd ~/Config
 
 chmod +x move_with_backup.sh
 ./move_with_backup.sh
 
 cd ..
-rm -rf ~/config/
+rm -rf ~/Config/
 ```
