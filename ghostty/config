@@ -1,0 +1,11 @@
+font-family = SauceCodePro Nerd Font
+font-size = 13
+theme = nord
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+adjust-cell-height = 10%
+adjust-cell-width = 5%
+background-opacity = 0.80
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+copy-on-select = clipboard
