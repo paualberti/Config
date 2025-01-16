@@ -33,3 +33,19 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- Automatically close the location list when selecting an entry
+vim.api.nvim_create_augroup("AutoCloseLoclistOnSelect", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	group = "AutoCloseLoclistOnSelect",
+	pattern = "qf", -- qf is the filetype for both quickfix and location list windows
+	callback = function()
+		-- Map <CR> to select the diagnostic and close the location list
+		vim.keymap.set(
+			"n", -- Normal mode
+			"<CR>", -- Enter key
+			"<CR>:lclose<CR>", -- Navigate to the location and close the location list
+			{ noremap = true, silent = true }
+		)
+	end,
+})
