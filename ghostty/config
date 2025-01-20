@@ -1,11 +1,11 @@
 font-family = SauceCodePro Nerd Font
 font-size = 13
-theme = nord
+# theme = nord
 theme = Tomorrow Night Eighties
 shell-integration-features = no-cursor,sudo,no-title
 cursor-style = block
-adjust-cell-height = 10%
-adjust-cell-width = 5%
+adjust-cell-height = 5%
+adjust-cell-width = 0%
 background-opacity = 0.70
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
