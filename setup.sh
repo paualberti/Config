@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo apt upgrade -y
+
 # Install NerdFont
 font_path="$HOME/.local/share/fonts"
 font_name="$font_path/SauceCodeProNerdFont"
@@ -14,18 +17,42 @@ else
   echo "$base_name already installed: $font_name"
 fi
 
-# Install utilities
-sudo apt-get update
-sudo apt upgrade
-sudo apt-get install \
-  vim\
-  ripgrep\
-  gnome-tweaks\
-  tree\
-  neofetch\
-  fzf\
+# List of packages to install
+read -r -d '' PACKAGES <<EOL
+vim
+ripgrep
+gnome-tweaks
+tree
+fzf
+neofetch
+openjdk-21-jre-headless
+openjdk-21-jdk-headless
+python3
+EOL
 
-# Install from pre-built archives
+# Convert the list into an array
+PACKAGES_ARRAY=($PACKAGES)
+
+# Initialize a counter for installed packages
+installed_count=0
+
+# Loop through each package
+for package in "${PACKAGES_ARRAY[@]}"; do
+  # Check if the package is already installed
+  if dpkg -l | grep -qw "$package"; then
+    continue
+  fi
+  sudo apt install -y "$package"
+  if [ $? -eq 0 ]; then
+    echo "$package installed successfully."
+    installed_count=$((installed_count + 1))
+  else
+    echo "Failed to install $package. Please check for issues."
+  fi
+done
+
+# Print summary
+echo "Total new packages installed: $installed_count"
 
 # Neovim
 if ! command -v nvim >/dev/null 2>&1; then
@@ -34,8 +61,7 @@ if ! command -v nvim >/dev/null 2>&1; then
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
   echo "export PATH=\"$PATH:/opt/nvim-linux64/bin\"" >> ~/.bashrc
 else
-  echo "Neovim is already installed at $(command -v nvim)"
-  echo "Version: $(nvim --version | head -n 1)"
+  echo "Version: $(nvim --version)"
 fi
 
 # Ghostty
@@ -50,6 +76,7 @@ if ! command -v ghostty >/dev/null 2>&1; then
   sudo dpkg -i "$GHOSTTY_DEB_FILE"
   rm "$GHOSTTY_DEB_FILE"
 else
-  echo "Ghostty is already installed at $(command -v ghostty)"
-  echo "Version: $(nvim --version | head -n 1)"
+  echo "Version: $(ghostty --version)"
 fi
+
+sudo apt autoremove -y

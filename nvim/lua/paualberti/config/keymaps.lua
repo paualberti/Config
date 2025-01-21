@@ -21,7 +21,7 @@ map("n", "n", "nzzzv", { silent = false }) -- Center view
 map("n", "N", "Nzzzv", { silent = false }) -- Center viewkey
 map("n", "Q", "<nop>") -- Disable Q
 map("i", "<c-c>", "<esc>") -- Standardize <esc>
-map("n", "<leader><leader>", "<esc>") -- Disable <space>
+map("n", "<leader><leader>", "<nop>") -- Disable <space>
 vim.keymap.set("n", "<leader>tw", function()
 	vim.wo.wrap = not vim.wo.wrap
 	print("Wrap is " .. (vim.wo.wrap and "ON" or "OFF"))
