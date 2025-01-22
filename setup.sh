@@ -12,9 +12,9 @@ if [ ! -d "$font_name" ]; then
   curl -Lo "$font_name.zip" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip"
   unzip "$font_name.zip" -d "$font_name"
   rm "$font_name.zip"
-  echo "Installed $base_name: $font_name"
+  echo "Installed $base_name"
 else
-  echo "$base_name already installed: $font_name"
+  echo "$base_name already installed"
 fi
 
 # List of packages to install
@@ -25,9 +25,10 @@ gnome-tweaks
 tree
 fzf
 neofetch
-openjdk-21-jre-headless
-openjdk-21-jdk-headless
-python3
+openjdk-17-jre-headless
+openjdk-17-jdk-headless
+python3.10-venv
+ruby-rubygems
 EOL
 
 # Convert the list into an array
@@ -39,9 +40,6 @@ installed_count=0
 # Loop through each package
 for package in "${PACKAGES_ARRAY[@]}"; do
   # Check if the package is already installed
-  if dpkg -l | grep -qw "$package"; then
-    continue
-  fi
   sudo apt install -y "$package"
   if [ $? -eq 0 ]; then
     echo "$package installed successfully."
@@ -51,6 +49,9 @@ for package in "${PACKAGES_ARRAY[@]}"; do
   fi
 done
 
+# Markdownlint
+sudo gem install mdl
+
 # Print summary
 echo "Total new packages installed: $installed_count"
 
@@ -59,9 +60,8 @@ if ! command -v nvim >/dev/null 2>&1; then
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
   sudo rm -rf /opt/nvim
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  rm nvim-linux64.tar.gz
   echo "export PATH=\"$PATH:/opt/nvim-linux64/bin\"" >> ~/.bashrc
-else
-  echo "Version: $(nvim --version)"
 fi
 
 # Ghostty
@@ -75,8 +75,10 @@ if ! command -v ghostty >/dev/null 2>&1; then
   curl -LO "$GHOSTTY_DEB_URL"
   sudo dpkg -i "$GHOSTTY_DEB_FILE"
   rm "$GHOSTTY_DEB_FILE"
-else
-  echo "Version: $(ghostty --version)"
 fi
+
+echo "Total new packages installed: $installed_count"
+echo "Version: $(nvim --version)"
+echo "Version: $(ghostty --version)"
 
 sudo apt autoremove -y
