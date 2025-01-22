@@ -10,6 +10,4 @@ chmod +x setup.sh
 
 chmod +x symlink.sh
 ./symlink.sh
-
-cd "$HOME"
 ```

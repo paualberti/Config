@@ -29,8 +29,7 @@ vim.opt.wrap = false
 vim.opt.inccommand = "split"
 vim.opt.pumheight = 5
 vim.opt.showtabline = 0
-vim.opt.guicursor =
-	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait400-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor = ""
 
 -- Behaviour
 vim.opt.confirm = true

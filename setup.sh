@@ -17,44 +17,6 @@ else
   echo "$base_name already installed"
 fi
 
-# List of packages to install
-read -r -d '' PACKAGES <<EOL
-vim
-ripgrep
-gnome-tweaks
-tree
-fzf
-neofetch
-openjdk-17-jre-headless
-openjdk-17-jdk-headless
-python3.10-venv
-ruby-rubygems
-EOL
-
-# Convert the list into an array
-PACKAGES_ARRAY=($PACKAGES)
-
-# Initialize a counter for installed packages
-installed_count=0
-
-# Loop through each package
-for package in "${PACKAGES_ARRAY[@]}"; do
-  # Check if the package is already installed
-  sudo apt install -y "$package"
-  if [ $? -eq 0 ]; then
-    echo "$package installed successfully."
-    installed_count=$((installed_count + 1))
-  else
-    echo "Failed to install $package. Please check for issues."
-  fi
-done
-
-# Markdownlint
-sudo gem install mdl
-
-# Print summary
-echo "Total new packages installed: $installed_count"
-
 # Neovim
 if ! command -v nvim >/dev/null 2>&1; then
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
@@ -77,8 +39,49 @@ if ! command -v ghostty >/dev/null 2>&1; then
   rm "$GHOSTTY_DEB_FILE"
 fi
 
+# # List of packages to install
+# read -r -d '' PACKAGES <<EOL
+# vim
+# ripgrep
+# gnome-tweaks
+# tree
+# fzf
+# neofetch
+# openjdk-17-jre-headless
+# openjdk-17-jdk-headless
+# python3.10-venv
+# ruby-rubygems
+# xclip
+# EOL
+
+PACKAGES_ARRAY= { "vim", "ripgrep", "gnome-tweaks", "fzf"
+  tree, "openjdk-17-jre-headless, openjdk-17-jdk-headless",
+  "python3.10-venv", "ruby-rubygems", "xclip"}
+
+# # Convert the list into an array
+# PACKAGES_ARRAY=($PACKAGES)
+
+# Initialize a counter for installed packages
+installed_count=0
+
+# Loop through each package
+for package in "${PACKAGES_ARRAY[@]}"; do
+  # Check if the package is already installed
+  sudo apt install -y "$package"
+  if [ $? -eq 0 ]; then
+    echo "$package installed successfully."
+    installed_count=$((installed_count + 1))
+  else
+    echo "Failed to install $package. Please check for issues."
+  fi
+done
+
+# Markdownlint
+sudo gem install mdl
+
+# Print summary
+echo "Total new packages installed: $installed_count"
 echo "Total new packages installed: $installed_count"
 echo "Version: $(nvim --version)"
-echo "Version: $(ghostty --version)"
 
 sudo apt autoremove -y
