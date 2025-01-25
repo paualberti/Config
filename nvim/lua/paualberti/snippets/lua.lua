@@ -16,3 +16,11 @@ ls.add_snippets("lua", {
 		t({ "", "\t}),", "})" }),
 	}),
 })
+
+ls.add_snippets("lua", {
+  s("version", {
+    t('version = "'),
+    i(1, "ver"),
+    t('",'),
+  }),
+})

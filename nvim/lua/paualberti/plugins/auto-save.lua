@@ -1,6 +1,6 @@
 return {
 	"brianhuster/autosave.nvim",
-	lazy = false,
+	version = "*",
 	event = "InsertEnter",
 	opts = {}, -- Configuration here
   config = function ()

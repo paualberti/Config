@@ -1,6 +1,7 @@
 return {
 	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
+	version = "*",
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
@@ -13,6 +14,7 @@ return {
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
 	},
 	config = function()
 		-- Brief aside: **What is LSP?**
@@ -211,6 +213,15 @@ return {
 				end,
 			},
 		})
+
+    capabilities = require("blink.cmp").get_lsp_capabilities()
+    require("lspconfig").lua_ls.setup { capabilites = capabilities }
+    require('lspconfig').clangd.setup({
+      cmd = { "clangd", "--query-driver=/usr/bin/g++" }, -- Add the path to g++
+      -- on_attach = function(client, bufnr)
+      --   -- Key mappings or other custom setup
+      -- end,
+    })
 
 		vim.api.nvim_create_user_command("ToggleDiagnostics", function()
 			local diagnostics_enabled = vim.diagnostic.is_enabled()

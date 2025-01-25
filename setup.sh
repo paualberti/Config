@@ -39,27 +39,28 @@ if ! command -v ghostty >/dev/null 2>&1; then
   rm "$GHOSTTY_DEB_FILE"
 fi
 
-# # List of packages to install
-# read -r -d '' PACKAGES <<EOL
-# vim
-# ripgrep
-# gnome-tweaks
-# tree
-# fzf
-# neofetch
-# openjdk-17-jre-headless
-# openjdk-17-jdk-headless
-# python3.10-venv
-# ruby-rubygems
-# xclip
-# EOL
+# List of packages to install
+read -r -d '' PACKAGES <<EOL
+vim
+ripgrep
+gnome-tweaks
+tree
+fzf
+neofetch
+openjdk-17-jre-headless
+openjdk-17-jdk-headless
+python3.10-venv
+ruby-rubygems
+xclip
+libsdl2-dev
+libsdl2-image-dev
+clang
+EOL
 
-PACKAGES_ARRAY= { "vim", "ripgrep", "gnome-tweaks", "fzf"
-  tree, "openjdk-17-jre-headless, openjdk-17-jdk-headless",
-  "python3.10-venv", "ruby-rubygems", "xclip"}
+# PACKAGES_ARRAY= { "vim", "ripgrep", "gnome-tweaks", "fzf", "tree", "openjdk-17-jre-headless, openjdk-17-jdk-headless", "python3.10-venv", "ruby-rubygems", "xclip"}
 
-# # Convert the list into an array
-# PACKAGES_ARRAY=($PACKAGES)
+# Convert the list into an array
+PACKAGES_ARRAY=($PACKAGES)
 
 # Initialize a counter for installed packages
 installed_count=0

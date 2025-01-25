@@ -1,5 +1,6 @@
 return {
 	"jinh0/eyeliner.nvim",
+	version = "*",
 	config = function()
 		require("eyeliner").setup({
 			highlight_on_key = false, -- must be set to true for dimming to work
