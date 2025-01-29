@@ -112,7 +112,7 @@ xkb_symbols "basic" {
 setxkbmap -layout us -variant <layout_name>
 ```
 
-````
+```
 setxkbmap -layout us -variant basic
 ```
 </details>
