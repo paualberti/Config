@@ -11,6 +11,7 @@ return {
         vim.cmd("EyelinerToggle")
 		vim.cmd("highlight EyelinerPrimary guifg=#FFFF00")
 		vim.cmd("highlight EyelinerSecondary guifg=#EE00EE")
+    vim.cmd("EyelinerDisable")
 	end,
 	vim.keymap.set(
 		"n",

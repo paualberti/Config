@@ -55,6 +55,7 @@ xclip
 libsdl2-dev
 libsdl2-image-dev
 clang
+npm
 EOL
 
 # PACKAGES_ARRAY= { "vim", "ripgrep", "gnome-tweaks", "fzf", "tree", "openjdk-17-jre-headless, openjdk-17-jdk-headless", "python3.10-venv", "ruby-rubygems", "xclip"}
@@ -68,7 +69,7 @@ installed_count=0
 # Loop through each package
 for package in "${PACKAGES_ARRAY[@]}"; do
   # Check if the package is already installed
-  sudo apt install -y "$package"
+  sudo apt install -y "$package" &> /dev/null
   if [ $? -eq 0 ]; then
     echo "$package installed successfully."
     installed_count=$((installed_count + 1))
@@ -81,7 +82,6 @@ done
 sudo gem install mdl
 
 # Print summary
-echo "Total new packages installed: $installed_count"
 echo "Total new packages installed: $installed_count"
 echo "Version: $(nvim --version)"
 

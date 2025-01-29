@@ -6,7 +6,7 @@ vim.api.nvim_command("autocmd VimResized * wincmd =")
 
 -- Delete trailing whitspaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	pattern = { "*" },
+	pattern = { "*.*" },
 	callback = function()
 		local save_cursor = vim.fn.getpos(".")
 		pcall(function()

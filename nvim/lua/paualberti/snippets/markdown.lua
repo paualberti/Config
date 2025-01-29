@@ -6,29 +6,77 @@ local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("markdown", {
-	s("-", { t("_{"), i(1), t("}^{"), i(2), t("}") }),
+	s("-", {
+		t("_{"),
+		i(1),
+		t("}^{"),
+		i(2),
+		t("}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("[", { t("_{"), i(1), t("}") }),
+	s("[", {
+		t("_{"),
+		i(1),
+		t("}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("]", { t("^{"), i(1), t("}") }),
+	s("]", {
+		t("^{"),
+		i(1),
+		t("}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("fraction", { t("\\dfrac{"), i(1), t("}{"), i(2), t("}") }),
+	s("fraction", {
+		t("\\dfrac{"),
+		i(1),
+		t("}{"),
+		i(2),
+		t("}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("partial_derivative", { t("\\dfrac{\\partial{"), i(1), t("}}{\\partial{"), i(2), t("}}") }),
+	s("partial_derivative", {
+		t("\\dfrac{\\partial{"),
+		i(1),
+		t("}}{\\partial{"),
+		i(2),
+		t("}}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("begin", { t("\\begin{"), i(1, "cases"), t({ "}", "" }), i(2), t("\\end{"), rep(1), t("}") }),
+	s("begin", {
+		t("\\begin{"),
+		i(1, "cases"),
+		t({ "}", "" }),
+		i(2),
+		t({ "", "\\end{" }),
+		rep(1),
+		t("}"),
+	}),
 })
 
 ls.add_snippets("markdown", {
-	s("text", { t("\\text{"), i(1), t("}") }),
+	s("text", {
+		t("\\text{"),
+		i(1),
+		t("}"),
+	}),
+})
+
+ls.add_snippets("markdown", {
+	s("details", {
+		t("<details><summary>"),
+		i(1, "Summary"),
+		t({ "</summary>", "" }),
+		i(2),
+		t({ "", "</details>" }),
+	}),
 })
