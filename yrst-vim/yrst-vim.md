@@ -22,12 +22,11 @@ q x c d v b h , ; .<br>
 
 Maintains normal numbers and symbols, Modifies alpha keys, RALT -> BackSpace
 
-<details><summary>File to edit (sudo access is required)</summary>
+File to edit (sudo access is required)
 
 ```
 /usr/share/X11/xkb/symbols/us
 ```
-</details>
 
 <details><summary>important</summary>
 Look for
