@@ -29,7 +29,7 @@ Maintains normal numbers and symbols, Modifies alpha keys, RALT -> BackSpace
 ```
 </details>
 
-<details><summary>[!important]</summary>
+<details><summary>important</summary>
 Look for
 
 ```
