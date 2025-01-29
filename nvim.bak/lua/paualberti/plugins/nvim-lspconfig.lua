@@ -217,9 +217,6 @@ return {
 			},
 		})
 
-    capabilities = require("blink.cmp").get_lsp_capabilities()
-    require("lspconfig").lua_ls.setup { capabilites = capabilities }
-
 		vim.api.nvim_create_user_command("ToggleDiagnostics", function()
 			local diagnostics_enabled = vim.diagnostic.is_enabled()
 			if diagnostics_enabled then

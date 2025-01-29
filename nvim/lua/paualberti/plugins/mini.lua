@@ -9,7 +9,7 @@ return {
     require('mini.move').setup({})
     require('mini.operators').setup({})
     require('mini.pairs').setup({})
-    require('mini.snippets').setup({})
+    -- require('mini.snippets').setup({})
     require('mini.splitjoin').setup({})
     require('mini.surround').setup({})
     require('mini.basics').setup({})
