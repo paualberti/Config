@@ -15,7 +15,7 @@ path=$HOME/Config/
 <details><summary>Clone the project</summary>
 
 ```
-git clone https://github.com/paualberti/Gomoku $path
+git clone https://github.com/paualberti/Config $path
 cd $path
 ```
 
