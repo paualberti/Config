@@ -74,7 +74,7 @@ ls.add_snippets("markdown", {
 ls.add_snippets("markdown", {
 	s("details", {
 		t("<details><summary>"),
-		i(1, "Summary"),
+		i(1),
 		t({ "</summary>", "" }),
 		i(2),
 		t({ "", "</details>" }),

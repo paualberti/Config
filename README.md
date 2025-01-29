@@ -5,9 +5,6 @@
 ```
 path=<your_path>
 ```
-</details>
-
-<details><summary>Use my path</summary>
 
 ```
 path=$HOME/Config/
@@ -24,9 +21,14 @@ cd $path
 
 </details>
 
+<details><summary>Setup config</summary>
+
+```
 chmod +x setup.sh
 ./setup.sh
 
 chmod +x symlink.sh
 ./symlink.sh
 ```
+
+</details>
