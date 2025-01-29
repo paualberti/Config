@@ -8,4 +8,5 @@ return {
 		"echasnovski/mini.pick",
 	},
 	opts = {},
+  vim.keymap.set("n", "<leader>l", "<cmd>LivePreview start<cr>", { desc = "[L]ive preview" })
 }

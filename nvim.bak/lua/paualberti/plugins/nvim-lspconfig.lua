@@ -199,6 +199,8 @@ return {
 			"checkstyle", -- Used to format java
 			"clang-format",
       "markdownlint",
+      "codelldb",
+      "zls"
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -217,13 +219,6 @@ return {
 
     capabilities = require("blink.cmp").get_lsp_capabilities()
     require("lspconfig").lua_ls.setup { capabilites = capabilities }
-    require('lspconfig').clangd.setup({
-      -- cmd = { "clangd", "--query-driver=/usr/bin/g++" }, -- Add the path to g++
-      cmd = { "clangd", "--query-driver=/usr/include/c++/11/" }, -- Add the path to g++
-      -- on_attach = function(client, bufnr)
-      --   -- Key mappings or other custom setup
-      -- end,
-    })
 
 		vim.api.nvim_create_user_command("ToggleDiagnostics", function()
 			local diagnostics_enabled = vim.diagnostic.is_enabled()
