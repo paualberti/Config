@@ -54,7 +54,6 @@ ruby-rubygems
 xclip
 libsdl2-dev
 libsdl2-image-dev
-clang
 npm
 EOL
 
