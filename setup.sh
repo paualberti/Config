@@ -80,8 +80,15 @@ done
 # Markdownlint
 sudo gem install mdl
 
+# Flatpak
+
+#Amberol
+flatpak install flathub io.bassi.Amberol -y
+#Celluloid
+flatpak install flathub io.github.celluloid_player.Celluloid -y
+
 # Print summary
-echo "Total new packages installed: $installed_count"
+echo "Total packages installed: $installed_count"
 echo "Version: $(nvim --version)"
 
 sudo apt autoremove -y

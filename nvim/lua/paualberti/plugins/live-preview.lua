@@ -9,6 +9,6 @@ return {
     },
     opts = {},
     keys = {
-        { "<leader>l", "<cmd>LivePreview start<cr>", desc = "[L]ive preview" }
+        { "<leader>l", "<CMD>LivePreview start<CR>", desc = "[L]ive preview" }
     }
 }

@@ -1,7 +1,7 @@
 -- Tab / indentation
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
@@ -47,7 +47,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.autochdir = false
 vim.opt.iskeyword:append("-")
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 vim.opt.clipboard = ""
 vim.opt.modifiable = true
 vim.opt.encoding = "UTF-8"

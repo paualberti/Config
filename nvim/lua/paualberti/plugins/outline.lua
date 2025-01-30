@@ -3,6 +3,6 @@ return {
     cmd = { "Outline", "OutlineOpen" },
     opts = {},
     keys = { -- Example mapping to toggle outline
-        { "<leader>to", "<cmd>Outline<CR>", desc = "[O]utline" },
+        { "<leader>to", "<CMD>Outline<CR>", desc = "[O]utline" },
     },
 }

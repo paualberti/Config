@@ -46,23 +46,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         -- [[ Configure Telescope ]]
         -- See `:help telescope` and `:help telescope.setup()`
         local actions = require("telescope.actions")
-        require("telescope").setup({
-            pickers = {
-                -- Custom configuration for builtin pickers, if needed.
-            },
-            extensions = {
-                ["ui-select"] = {
-                    require("telescope.themes").get_dropdown(),
-                },
-            },
-        })
-
-        -- Enable Telescope extensions if they are installed
-        pcall(require("telescope").load_extension, "fzf")
-        pcall(require("telescope").load_extension, "ui-select")
-
-        -- See `:help telescope.builtin`
-        local builtin = require("telescope.builtin")
+        local themes = require("telescope.themes")
         local theme_opts = {
             theme = "dropdown",
 
@@ -89,9 +73,47 @@ return { -- Fuzzy Finder (files, lsp, etc)
                 preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
             },
         }
-        local themes = require("telescope.themes")
-        local theme = themes.get_ivy(theme_opts)
-        vim.keymap.set("n", "<leader>sh", function() builtin.help_tags(theme) end, { desc = "[H]elp" })
+        local theme = themes.get_ivy({
+            theme = "dropdown",
+
+            results_title = false,
+
+            sorting_strategy = "ascending",
+            layout_strategy = "bottom_pane",
+            layout_config = {
+                preview_cutoff = 1, -- Preview should always show (unless previewer = false)
+
+                width = function(_, max_columns, _)
+                    return math.min(max_columns, 80)
+                end,
+
+                height = function(_, _, max_lines)
+                    return math.min(max_lines, 15)
+                end,
+            },
+
+            border = true,
+            borderchars = {
+                prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+                results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+                preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+            },
+        })
+        require("telescope").setup({
+            pickers = {
+                -- Custom configuration for builtin pickers, if needed.
+            },
+            extensions = {
+                ["ui-select"] = theme,
+            },
+        })
+
+        -- Enable Telescope extensions if they are installed
+        pcall(require("telescope").load_extension, "fzf")
+        pcall(require("telescope").load_extension, "ui-select")
+
+        -- See `:help telescope.builtin`
+        local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>sk", function() builtin.keymaps(theme) end, { desc = "[K]eymaps" })
         vim.keymap.set("n", "<leader>sf", function() builtin.find_files(theme) end, { desc = "[F]iles" })
         vim.keymap.set("n", "<leader>ss", function() builtin.builtin(theme) end, { desc = "[S]elect" })
@@ -100,22 +122,31 @@ return { -- Fuzzy Finder (files, lsp, etc)
         vim.keymap.set("n", "<leader>sr", function() builtin.resume(theme) end, { desc = "[R]esume" })
         vim.keymap.set("n", "<leader>so", function() builtin.oldfiles(theme) end, { desc = "[O]ld files" })
         vim.keymap.set("n", "<leader>sb", function() builtin.buffers(theme) end, { desc = "[B]uffers" })
-        vim.keymap.set("n", "<leader>s/", function() builtin.current_buffer_fuzzy_find(theme) end, { desc = "Current buffer" })
+        vim.keymap.set("n", "<leader>sm", function() builtin.marks(theme) end, { desc = "[B]uffers" })
 
+        local function shallowCopy(t)
+            local copy = {}
+            for k, v in pairs(t) do
+                copy[k] = v
+            end
+            return copy
+        end
+
+        local live_grep_open_files = shallowCopy(theme)
+        live_grep_open_files.grep_open_files = true
+        live_grep_open_files.prompt_title = "Live Grep in Open Files"
         -- It's also possible to pass additional configuration options.
         --  See `:help telescope.builtin.live_grep()` for information about particular keys
-        vim.keymap.set("n", "<leader>st", function()
-            builtin.live_grep({
-                grep_open_files = true,
-                prompt_title = "Live Grep in Open Files",
-            })
-        end, { desc = "[T]ext" })
+        vim.keymap.set("n", "<leader>s/", function()
+            builtin.live_grep(live_grep_open_files)
+        end, { desc = "Current buffers" })
 
+        local search_neovim_files = shallowCopy(theme)
+        search_neovim_files.cwd = vim.fn.stdpath("config")
+        search_neovim_files.prompt_title = "Search Neovim Files"
         -- Shortcut for searching your Neovim configuration files
         vim.keymap.set("n", "<leader>sn", function()
-            builtin.find_files({
-                cwd = vim.fn.stdpath("config")
-            })
+            builtin.find_files(search_neovim_files)
         end, { desc = "[N]eovim files" })
 
         local ignore_patterns = {
