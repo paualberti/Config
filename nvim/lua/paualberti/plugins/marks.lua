@@ -1,6 +1,6 @@
 return {
-	"chentoast/marks.nvim",
-	version = "*",
-	event = "VeryLazy",
-	opts = {},
+    "chentoast/marks.nvim",
+    version = "*",
+    event = "VeryLazy",
+    opts = {},
 }
