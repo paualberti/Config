@@ -1,6 +1,6 @@
 # Config
 
-<details><summary>Set a path</summary>
+## Set a path
 
 ```
 path=<your_path>
@@ -10,18 +10,14 @@ path=<your_path>
 path=$HOME/Config/
 ```
 
-</details>
-
-<details><summary>Clone the project</summary>
+## Clone the project
 
 ```
-git clone https://github.com/paualberti/Config $path
+git clone --filter=blob:none https://github.com/paualberti/Config $path
 cd $path
 ```
 
-</details>
-
-<details><summary>Setup config</summary>
+## Setup config
 
 ```
 chmod +x setup.sh
@@ -30,5 +26,3 @@ chmod +x setup.sh
 chmod +x symlink.sh
 ./symlink.sh
 ```
-
-</details>

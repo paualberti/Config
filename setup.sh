@@ -51,7 +51,7 @@ openjdk-17-jre-headless
 openjdk-17-jdk-headless
 python3.10-venv
 ruby-rubygems
-xclip
+xsel
 libsdl2-dev
 libsdl2-image-dev
 npm
