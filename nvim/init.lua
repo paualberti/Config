@@ -1,7 +1,7 @@
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 -- Set mapleader globally
-vim.g.mapleader = " "
+vim.g.mapleader      = " "
 vim.g.maplocalleader = " "
 
 require("paualberti.config")
@@ -21,10 +21,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "paualberti.plugins" },
 }, {
-    ui = { },
+    ui = {},
     checker = {
 	enabled = true,
-	notify = false,
+	notify  = false,
     },
     change_detection = {
 	notify = false,
