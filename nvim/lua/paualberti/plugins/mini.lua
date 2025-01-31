@@ -15,7 +15,7 @@ return {
 	require('mini.basics').setup({})
 	require('mini.bracketed').setup({})
 	require('mini.bufremove').setup({})
-	require('mini.clue').setup({})
+	-- require('mini.clue').setup({})
 	require('mini.diff').setup({})
 	require('mini.extra').setup({})
 	-- require('mini.files').setup({})
@@ -38,11 +38,11 @@ return {
 	require('mini.notify').setup({})
 	-- require('mini.starter').setup({})
 	require('mini.statusline').setup({})
-	-- require('mini.tabline').setup({})
+	require('mini.tabline').setup({})
 	require('mini.trailspace').setup({})
 	require('mini.doc').setup({})
 	require('mini.fuzzy').setup({})
 	require('mini.test').setup({})
-	vim.keymap.set("n", "<leader>bw", "<CMD>lua MiniBufremove.wipeout()<CR>", { desc = "[W]ipeout" })
+	vim.keymap.set("n", "<leader>bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "[D]elete" })
     end,
 }

@@ -13,7 +13,7 @@ path=$HOME/Config/
 ## Clone the project
 
 ```
-git clone --filter=blob:none https://github.com/paualberti/Config $path
+git clone --filter=blob:none https://github.com/paualberti/Config.git $path
 cd $path
 ```
 
