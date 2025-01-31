@@ -1,10 +1,9 @@
 return { -- Fuzzy Finder (files, lsp, etc)
     "nvim-telescope/telescope.nvim",
-    version = "*",
     event = "VimEnter",
-    branch = "0.1.x",
+    branch = "nvim-0.5.0",
     dependencies = {
-        "nvim-lua/plenary.nvim",
+        { "nvim-lua/plenary.nvim", },
         { -- If encountering errors, see telescope-fzf-native README for installation instructions
             "nvim-telescope/telescope-fzf-native.nvim",
 
@@ -137,9 +136,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
         live_grep_open_files.prompt_title = "Live Grep in Open Files"
         -- It's also possible to pass additional configuration options.
         --  See `:help telescope.builtin.live_grep()` for information about particular keys
-        vim.keymap.set("n", "<leader>s/", function()
+        vim.keymap.set("n", "<leader>/", function()
             builtin.live_grep(live_grep_open_files)
-        end, { desc = "Current buffers" })
+        end, { desc = "Grep in Open Buffers" })
 
         local search_neovim_files = shallowCopy(theme)
         search_neovim_files.cwd = vim.fn.stdpath("config")

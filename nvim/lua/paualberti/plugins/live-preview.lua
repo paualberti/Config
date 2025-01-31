@@ -1,11 +1,11 @@
 return {
     "brianhuster/live-preview.nvim",
-    version = "*",
+    branch = "0.8.x",
     dependencies = {
         -- You can choose one of the following pickers
-        -- "nvim-telescope/telescope.nvim",
-        -- "ibhagwan/fzf-lua",
-        "echasnovski/mini.pick",
+        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
+        -- "echasnovski/mini.pick",
     },
     opts = {},
     keys = {
