@@ -1,3 +1,0 @@
-return {
-    'stebearc/conform.nvim',
-}
