@@ -92,55 +92,20 @@ return {
 							preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 						},
 					})
-
 					local builtin = require("telescope.builtin")
-					vim_keymap_set("n", "gd", function()
-						builtin.lsp_definitions(theme)
-					end, "Definition")
 
-					-- WARN: This is not Goto Definition, this is Goto Declaration.
-					--  For example, in C this would take you to the header.
-					vim_keymap_set("n", "gD", function()
-						vim.lsp.buf.declaration(theme)
-					end, "Declaration")
+					-- stylua: ignore start
+					vim_keymap_set("n", "gd", function() builtin.lsp_definitions(theme) end, "Definition")
+					vim_keymap_set("n", "gD", function() vim.lsp.buf.declaration(theme) end, "Declaration")
+					vim_keymap_set("n", "gR", function() builtin.lsp_references(theme) end, "References")
+					vim_keymap_set("n", "gI", function() builtin.lsp_implementations(theme) end, "Implementation")
 
-					-- Find references for the word under your cursor.
-					vim_keymap_set("n", "gR", function()
-						builtin.lsp_references(theme)
-					end, "References")
-
-					-- Jump to the implementation of the word under your cursor.
-					--  Useful when your language has ways of declaring types without an actual implementation.
-					vim_keymap_set("n", "gI", function()
-						builtin.lsp_implementations(theme)
-					end, "Implementation")
-
-					-- Jump to the type of the word under your cursor.
-					--  Useful when you're not sure what type a variable is and you want to see
-					--  the definition of its *type*, not where it was *defined*.
-					vim_keymap_set("n", "<leader>ld", function()
-						builtin.lsp_type_definitions(theme)
-					end, "Definition")
-
-					-- Fuzzy find all the symbols in your current document.
-					--  Symbols are things like variables, functions, types, etc.
-					vim_keymap_set("n", "<leader>ld", function()
-						builtin.lsp_document_symbols(theme)
-					end, "Document Symbols")
-
-					-- Fuzzy find all the symbols in your current workspace.
-					--  Similar to document symbols, except searches over your entire project.
-					vim_keymap_set("n", "<leader>lw", function()
-						builtin.lsp_dynamic_workspace_symbols(theme)
-					end, "Workspace Symbols")
-
-					-- Rename the variable under your cursor.
-					--  Most Language Servers support renaming across files, etc.
+					vim_keymap_set("n", "<leader>ld", function() builtin.lsp_type_definitions(theme) end, "Definition")
+					vim_keymap_set("n", "<leader>ld", function() builtin.lsp_document_symbols(theme) end, "Document Symbols")
+					vim_keymap_set("n", "<leader>lw", function() builtin.lsp_dynamic_workspace_symbols(theme) end, "Workspace Symbols")
 					vim_keymap_set("n", "<leader>lr", vim.lsp.buf.rename, "Rename")
-
-					-- Execute a code action, usually your cursor needs to be on top of an error
-					-- or a suggestion from your LSP for this to activate.
 					vim_keymap_set({ "n", "x" }, "<leader>lc", vim.lsp.buf.code_action, "Code Action")
+					-- stylua: ignore end
 				end,
 			})
 

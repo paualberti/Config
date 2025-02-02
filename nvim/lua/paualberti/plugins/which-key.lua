@@ -12,6 +12,7 @@ return {
 			{ "<leader>h", group = "Harpoon" },
 			{ "<leader>l", group = "LSP" },
 			{ "<leader>p", group = "Preview" },
+			{ "<leader>r", group = "Rename" },
 			{ "<leader>s", group = "Search" },
 			{ "<leader>t", group = "Toggle" },
 		},

@@ -79,56 +79,30 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		pcall(require("telescope").load_extension, "ui-select")
 
 		-- See `:help telescope.builtin`
+		-- stylua: ignore start
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>sk", function()
-			builtin.keymaps(theme)
-		end, { desc = "Keymaps" })
-		vim.keymap.set("n", "<leader>sf", function()
-			builtin.find_files(theme)
-		end, { desc = "Files" })
-		vim.keymap.set("n", "<leader>ss", function()
-			builtin.builtin(theme)
-		end, { desc = "Select" })
-		vim.keymap.set("n", "<leader>sg", function()
-			builtin.live_grep(theme)
-		end, { desc = "Grep" })
-		vim.keymap.set("n", "<leader>sd", function()
-			builtin.diagnostics(theme)
-		end, { desc = "Diagnostics" })
-		vim.keymap.set("n", "<leader>sr", function()
-			builtin.resume(theme)
-		end, { desc = "Resume" })
-		vim.keymap.set("n", "<leader>so", function()
-			builtin.oldfiles(theme)
-		end, { desc = "Old files" })
-		vim.keymap.set("n", "<leader>sb", function()
-			builtin.buffers(theme)
-		end, { desc = "Buffers" })
+		vim.keymap.set("n", "<leader>sk", function() builtin.keymaps(theme) end, { desc = "Keymaps" })
+		vim.keymap.set("n", "<leader>sf", function() builtin.find_files(theme) end, { desc = "Files" })
+		vim.keymap.set("n", "<leader>ss", function() builtin.builtin(theme) end, { desc = "Select" })
+		vim.keymap.set("n", "<leader>sg", function() builtin.live_grep(theme) end, { desc = "Grep" })
+		vim.keymap.set("n", "<leader>sd", function() builtin.diagnostics(theme) end, { desc = "Diagnostics" })
+		vim.keymap.set("n", "<leader>sr", function() builtin.resume(theme) end, { desc = "Resume" })
+		vim.keymap.set("n", "<leader>so", function() builtin.oldfiles(theme) end, { desc = "Old files" })
+		vim.keymap.set("n", "<leader>sb", function() builtin.buffers(theme) end, { desc = "Buffers" })
 
-		local function shallowCopy(t)
-			local copy = {}
-			for k, v in pairs(t) do
-				copy[k] = v
-			end
-			return copy
-		end
-
-		local live_grep_open_files = shallowCopy(theme)
+		local live_grep_open_files = ShallowCopy(theme)
 		live_grep_open_files.grep_open_files = true
 		live_grep_open_files.prompt_title = "Live Grep in Open Files"
 		-- It's also possible to pass additional configuration options.
 		--  See `:help telescope.builtin.live_grep()` for information about particular keys
-		vim.keymap.set("n", "<leader>/", function()
-			builtin.live_grep(live_grep_open_files)
-		end, { desc = "Grep in Open Buffers" })
+		vim.keymap.set("n", "<leader>/", function() builtin.live_grep(live_grep_open_files) end, { desc = "Grep in Open Buffers" })
 
-		local search_neovim_files = shallowCopy(theme)
+		local search_neovim_files = ShallowCopy(theme)
 		search_neovim_files.cwd = vim.fn.stdpath("config")
 		search_neovim_files.prompt_title = "Search Neovim Files"
 		-- Shortcut for searching your Neovim configuration files
-		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files(search_neovim_files)
-		end, { desc = "Neovim files" })
+		vim.keymap.set("n", "<leader>sn", function() builtin.find_files(search_neovim_files) end, { desc = "Neovim files" })
+		-- stylua: ignore end
 
 		local ignore_patterns = {
 			"%.o",
