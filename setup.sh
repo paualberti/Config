@@ -53,8 +53,9 @@ python3.10-venv
 ruby-rubygems
 xsel
 libsdl2-dev
-libsdl2-image-dev
 npm
+cmake
+g++-12
 EOL
 
 # PACKAGES_ARRAY= { "vim", "ripgrep", "gnome-tweaks", "fzf", "tree", "openjdk-17-jre-headless, openjdk-17-jdk-headless", "python3.10-venv", "ruby-rubygems", "xclip"}
@@ -70,15 +71,12 @@ for package in "${PACKAGES_ARRAY[@]}"; do
   # Check if the package is already installed
   sudo apt install -y "$package" &> /dev/null
   if [ $? -eq 0 ]; then
-    echo "$package installed successfully."
+    echo "$package is installed"
     installed_count=$((installed_count + 1))
   else
-    echo "Failed to install $package. Please check for issues."
+    echo "$package is not installed"
   fi
 done
-
-# Markdownlint
-sudo gem install mdl
 
 # Flatpak
 

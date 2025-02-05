@@ -28,8 +28,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, { -- Delete trailing whitspaces
 -- Set options --
 -----------------
 
--- stylua: ignore
-for _, v in pairs(M.n_v_i) do vim.o.mouse = vim.o.mouse .. v end
+for _, v in pairs(M.n_v_i) do
+	vim.o.mouse = vim.o.mouse .. v
+end
 
 vim.o.guicursor = ""
 vim.o.inccommand = "split"
@@ -44,15 +45,15 @@ vim.o.sidescrolloff = 7
 vim.o.pumheight = 10
 vim.o.hlsearch = false
 vim.o.relativenumber = true
-vim.o.title = true
 vim.o.showmode = true
 vim.o.ruler = true
 vim.o.confirm = false
 vim.o.spell = false
 
-vim.o.foldmethod = "manual"
-vim.o.foldlevel = 1
-vim.o.foldnestmax = 10
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldlevel = 99
 vim.g.markdown_folding = 1
 
 -----------------
@@ -60,12 +61,11 @@ vim.g.markdown_folding = 1
 -----------------
 
 vim.keymap.set(M.n, "<leader>x", "<CMD>source<CR>", { desc = "Source file" })
-vim.keymap.set(M.n, "<CR>", "za")
+vim.keymap.set(M.n_v, "<leader><leader>", "z")
 
-vim.keymap.set(M.n, "<leader>bst", "<CMD>setlocal spell!<CR>", { desc = "Toggle" })
-vim.keymap.set(M.n, "<leader>bse", "<CMD>setlocal spelllang=en_us,en_gb<CR>", { desc = "English" })
-vim.keymap.set(M.n, "<leader>bss", "<CMD>setlocal spelllang=es_es<CR>", { desc = "Spanish" })
-vim.keymap.set(M.n, "<leader>bsf", "1z=", { desc = "Insert first" })
+vim.keymap.set(M.n, "<leader>be", "<CMD>setlocal spelllang=en_us,en_gb<CR>", { desc = "English" })
+vim.keymap.set(M.n, "<leader>bs", "<CMD>setlocal spelllang=es_es<CR>", { desc = "Spanish" })
+vim.keymap.set(M.n, "<leader>bf", "1z=", { desc = "Insert first" })
 vim.keymap.set(M.n, "<leader>bi", "=gg=G", { desc = "Indent" })
 
 vim.keymap.set(M.n_v, "<ScrollWheelUp>", "k")

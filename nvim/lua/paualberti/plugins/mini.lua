@@ -19,10 +19,10 @@ return {
 		require("mini.diff").setup({})
 		require("mini.extra").setup({})
 		-- require('mini.files').setup({})
-		require("mini.git").setup({})
+		-- require("mini.git").setup({})
 		-- require('mini.jump').setup({})
 		-- require('mini.jump2d').setup({})
-		require("mini.misc").setup({})
+		-- require("mini.misc").setup({})
 		require("mini.pick").setup({})
 		require("mini.sessions").setup({})
 		-- require("mini.visits").setup({})
@@ -45,15 +45,23 @@ return {
 		-- require('mini.hues').setup({})
 		require("mini.icons").setup({})
 		require("mini.indentscope").setup({})
-		require("mini.map").setup({})
+		-- require("mini.map").setup({})
 		require("mini.notify").setup({})
 		-- require('mini.starter').setup({})
 		require("mini.statusline").setup({})
 		require("mini.tabline").setup({})
 		require("mini.trailspace").setup({})
-		require("mini.doc").setup({})
+		-- require("mini.doc").setup({})
 		require("mini.fuzzy").setup({})
-		require("mini.test").setup({})
-		vim.keymap.set("n", "<leader>bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
+		-- require("mini.test").setup({})
+		vim.keymap.set(M.n, "<leader>bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
+
+		vim.keymap.set(M.n, "<leader>w0", MiniSessions.write, { desc = "Last" })
+		vim.keymap.set(M.n, "<leader>r0", MiniSessions.read, { desc = "Last" })
+		local num = { "1", "2", "3" }
+		for _, v in pairs(num) do
+			vim.keymap.set(M.n, "<leader>w" .. v, "<CMD>lua MiniSessions.write('" .. v .. "')<CR>", { desc = v })
+			vim.keymap.set(M.n, "<leader>r" .. v, "<CMD>lua MiniSessions.read('" .. v .. "')<CR>", { desc = v })
+		end
 	end,
 }
