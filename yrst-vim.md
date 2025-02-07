@@ -5,14 +5,11 @@
 Alternative layouts [document](https://docs.google.com/document/d/1Ic-h8UxGe5-Q0bPuYNgE3NoWiI8ekeadvSQ5YysrwII/edit?tab=t.0)<br>
 Analysed with [keysolve](https://clemenpine.github.io/keysolve-web/)<br>
 
-<details><summary>Layout</summary>
-
 ```
 p l w m g z f o u '
 y r s t k j n a e i
 q x c d v b h , ; .
 ```
-</details>
 
 ---
 
@@ -27,21 +24,18 @@ Maintains normal numbers and symbols, Modifies alpha keys, RALT -> BackSpace
 File to edit (sudo access is required)
 
 ```
-/usr/share/X11/xkb/symbols/us
+sudo vim /usr/share/X11/xkb/symbols/us # or any editor of choice
 ```
 
-<details><summary>important</summary>
-Look for
-
-```
-xkb_symbols "<layout name>"
-```
-And change it to your preferences
+### Look for
 
 ```
 xkb_symbols "basic"
 ```
-</details>
+
+And change it to your preferences
+
+### Layout
 
 <details><summary>Layout Configuration</summary>
 
@@ -107,13 +101,8 @@ xkb_symbols "basic" {
 ```
 </details>
 
-<details><summary>Use the added layout</summary>
-
-```
-setxkbmap -layout us -variant <layout_name>
-```
+### Set up the layout
 
 ```
 setxkbmap -layout us -variant basic
 ```
-</details>

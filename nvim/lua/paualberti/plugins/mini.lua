@@ -56,12 +56,12 @@ return {
 		-- require("mini.test").setup({})
 		vim.keymap.set(M.n, "<leader>bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
 
-		vim.keymap.set(M.n, "<leader>w0", MiniSessions.write, { desc = "Last" })
-		vim.keymap.set(M.n, "<leader>r0", MiniSessions.read, { desc = "Last" })
-		local num = { "1", "2", "3" }
-		for _, v in pairs(num) do
-			vim.keymap.set(M.n, "<leader>w" .. v, "<CMD>lua MiniSessions.write('" .. v .. "')<CR>", { desc = v })
-			vim.keymap.set(M.n, "<leader>r" .. v, "<CMD>lua MiniSessions.read('" .. v .. "')<CR>", { desc = v })
+		vim.keymap.set(M.n, "<leader>sw0", MiniSessions.write, { desc = "Last" })
+		vim.keymap.set(M.n, "<leader>sr0", MiniSessions.read, { desc = "Last" })
+		local sessions = { "1", "2", "3", "4" }
+		for _, value in ipairs(sessions) do
+			vim.keymap.set(M.n, "<leader>sw" .. value, "<CMD>lua MiniSessions.write('" .. value .. "')<CR>", { desc = value })
+			vim.keymap.set(M.n, "<leader>sr" .. value, "<CMD>lua MiniSessions.read('" .. value .. "')<CR>", { desc = value })
 		end
 	end,
 }

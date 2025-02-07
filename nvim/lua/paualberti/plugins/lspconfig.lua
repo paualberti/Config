@@ -18,6 +18,7 @@ return {
 		dependencies = {
 			{ "williamboman/mason.nvim", opts = {} },
 			"hrsh7th/cmp-nvim-lsp",
+			"ibhagwan/fzf-lua",
 		},
 		opts = {
 			servers = {
@@ -35,54 +36,23 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local theme = require("telescope.themes").get_ivy({
-				theme = "dropdown",
-				results_title = false,
-				sorting_strategy = "ascending",
-				layout_strategy = "bottom_pane",
-				layout_config = {
-					preview_cutoff = 1, -- Preview should always show (unless previewer = false)
-					width = function(_, max_columns, _)
-						return math.min(max_columns, 80)
-					end,
-					height = function(_, _, max_lines)
-						return math.min(max_lines, 15)
-					end,
-				},
-				border = true,
-				borderchars = {
-					prompt = { { desc = "─" }, "│", " ", "│", "╭", "╮", "│", "│" },
-					results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-					preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-				},
-			})
-			local builtin = require("telescope.builtin")
-
-			vim.keymap.set(M.n, "gd", builtin.lsp_definitions, { desc = "Definition" })
-			vim.keymap.set(M.n, "gD", vim.lsp.buf.declaration, { desc = "Declaration" })
-			vim.keymap.set(M.n, "gR", function()
-				builtin.lsp_references(theme)
-			end, { desc = "References" })
-			vim.keymap.set(M.n, "gI", function()
-				builtin.lsp_implementations(theme)
-			end, { desc = "Implementation" })
-
-			vim.keymap.set(M.n, "<leader>cd", function()
-				builtin.lsp_type_definitions(theme)
-			end, { desc = "Definition" })
-			vim.keymap.set(M.n, "<leader>cs", function()
-				builtin.lsp_document_symbols(theme)
-			end, { desc = "Document Symbols" })
-			vim.keymap.set(M.n, "<leader>cw", function()
-				builtin.lsp_dynamic_workspace_symbols(theme)
-			end, { desc = "Workspace Symbols" })
-			vim.keymap.set(M.n, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-			vim.keymap.set(M.n, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-
 			local lspconfig = require("lspconfig")
-			for k, v in pairs(opts.servers) do
-				lspconfig[k].setup(v)
+			for server, config in pairs(opts.servers) do
+				lspconfig[server].setup(config)
 			end
+
+			vim.keymap.set(M.n, "gd", "<CMD>FzfLua lsp_definitions<CR>", { desc = "Definition" })
+			vim.keymap.set(M.n, "gD", "<CMD>FzfLua lsp_declarations<CR>", { desc = "Declaration" })
+			vim.keymap.set(M.n, "gR", "<CMD>FzfLua lsp_references<CR>", { desc = "References" })
+			vim.keymap.set(M.n, "gI", "<CMD>FzfLua lsp_implementation<CR>", { desc = "Implementation" })
+
+			vim.keymap.set(M.n, "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", { desc = "Action" })
+			vim.keymap.set(M.n, "<leader>cd", "<CMD>FzfLua lsp_typedefs<CR>", { desc = "Type Definition" })
+			vim.keymap.set(M.n, "<leader>cl", "<CMD>Lazy<CR>", { desc = "Lazy" })
+			vim.keymap.set(M.n, "<leader>cm", "<CMD>Mason<CR>", { desc = "Mason" })
+			vim.keymap.set(M.n, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+			vim.keymap.set(M.n, "<leader>cs", "<CMD>FzfLua lsp_document_symbols<CR>", { desc = "Document Symbols" })
+			vim.keymap.set(M.n, "<leader>cw", "<CMD>FzfLua lsp_workspace_symbols<CR>", { desc = "Workspace Symbols" })
 		end,
 	},
 }

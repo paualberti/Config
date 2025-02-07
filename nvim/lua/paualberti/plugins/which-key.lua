@@ -8,13 +8,14 @@ return {
 		},
 		spec = {
 			{ "<leader>b", group = "Buffer" },
-			{ "<leader>h", group = "Harpoon" },
 			{ "<leader>c", group = "Code" },
+			{ "<leader>f", group = "Find" },
+			{ "<leader>h", group = "Harpoon" },
 			{ "<leader>p", group = "Preview" },
-			{ "<leader>s", group = "Search" },
-			{ "<leader>r", group = "Session Read" },
-			{ "<leader>w", group = "Session Write" },
 			{ "<leader>r", group = "Rename", mode = M.v },
+			{ "<leader>s", group = "Session" },
+			{ "<leader>sr", group = "Read" },
+			{ "<leader>sw", group = "Write" },
 		},
 	},
 }
