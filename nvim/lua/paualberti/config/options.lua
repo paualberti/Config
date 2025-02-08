@@ -20,7 +20,6 @@ vim.o.pumheight = 10
 vim.o.hlsearch = false
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.showmode = true
 vim.o.ruler = true
 vim.o.confirm = false
 vim.o.spell = false

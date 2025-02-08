@@ -26,10 +26,3 @@ vim.api.nvim_create_autocmd("BufReadPost", { -- Go to last location within a buf
     end
   end,
 })
-
-vim.api.nvim_create_autocmd('TermOpen', {
-	callback = function ()
-		vim.o.number = false
-		vim.o.relativenumber = false
-	end
-})
