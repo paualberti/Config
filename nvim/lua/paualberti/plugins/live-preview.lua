@@ -8,8 +8,8 @@ return {
 	},
 	opts = {},
 	keys = {
-		{ "<leader>ps", "<CMD>LivePreview start<CR>", desc = "Start" },
-		{ "<leader>pc", "<CMD>LivePreview close<CR>", desc = "Close" },
-		{ "<leader>pp", "<CMD>LivePreview pick<CR>", desc = "Pick" },
+		{ Leader .. "ps", "<CMD>LivePreview start<CR>", desc = "Start" },
+		{ Leader .. "pc", "<CMD>LivePreview close<CR>", desc = "Close" },
+		{ Leader .. "pp", "<CMD>LivePreview pick<CR>", desc = "Pick" },
 	},
 }

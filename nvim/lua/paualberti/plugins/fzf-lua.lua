@@ -80,22 +80,22 @@ return {
 		},
 	},
 	config = function()
-		vim.keymap.set(M.n, "<leader>fb", "<CMD>FzfLua buffers<CR>", { desc = "Open Buffers" })
+		vim.keymap.set(M.n, Leader .. "fb", "<CMD>FzfLua buffers<CR>", { desc = "Open Buffers" })
 		vim.keymap.set(
 			M.n,
-			"<leader>fc",
+			Leader .. "fc",
 			"<CMD>FzfLua files cwd=" .. vim.fn.stdpath("config") .. "<CR>",
 			{ desc = "Open Buffers" }
 		)
-		vim.keymap.set(M.n, "<leader>fd", "<CMD>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics" })
-		vim.keymap.set(M.n, "<leader>ff", "<CMD>FzfLua files<CR>", { desc = "Files" })
-		vim.keymap.set(M.n, "<leader>fg", "<CMD>FzfLua live_grep_native<CR>", { desc = "by Grep" })
-		vim.keymap.set(M.n, "<leader>fh", "<CMD>FzfLua helptags<CR>", { desc = "Help Tags" })
-		vim.keymap.set(M.n, "<leader>fk", "<CMD>FzfLua keymaps<CR>", { desc = "Keymaps" })
-		vim.keymap.set(M.n, "<leader>fo", "<CMD>FzfLua oldfiles<CR>", { desc = "Old Files" })
-		vim.keymap.set(M.n, "<leader>fq", "<CMD>FzfLua quickfix<CR>", { desc = "QuickFix" })
-		vim.keymap.set(M.n, "<leader>fr", "<CMD>FzfLua resume<CR>", { desc = "Resume" })
-		vim.keymap.set(M.n, "<leader>fs", "<CMD>FzfLua builtin<CR>", { desc = "Select command" })
-		vim.keymap.set(M.n_v, "<leader>/", "<CMD>FzfLua lgrep_curbuf<CR>", { desc = "Grep current buffer" })
+		vim.keymap.set(M.n, Leader .. "fd", "<CMD>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics" })
+		vim.keymap.set(M.n, Leader .. "ff", "<CMD>FzfLua files<CR>", { desc = "Files" })
+		vim.keymap.set(M.n, Leader .. "fg", "<CMD>FzfLua live_grep_native<CR>", { desc = "by Grep" })
+		vim.keymap.set(M.n, Leader .. "fh", "<CMD>FzfLua helptags<CR>", { desc = "Help Tags" })
+		vim.keymap.set(M.n, Leader .. "fk", "<CMD>FzfLua keymaps<CR>", { desc = "Keymaps" })
+		vim.keymap.set(M.n, Leader .. "fo", "<CMD>FzfLua oldfiles<CR>", { desc = "Old Files" })
+		vim.keymap.set(M.n, Leader .. "fq", "<CMD>FzfLua quickfix<CR>", { desc = "QuickFix" })
+		vim.keymap.set(M.n, Leader .. "fr", "<CMD>FzfLua resume<CR>", { desc = "Resume" })
+		vim.keymap.set(M.n, Leader .. "fs", "<CMD>FzfLua builtin<CR>", { desc = "Select command" })
+		vim.keymap.set(M.n_v, Leader .. "/", "<CMD>FzfLua lgrep_curbuf<CR>", { desc = "Grep current buffer" })
 	end,
 }

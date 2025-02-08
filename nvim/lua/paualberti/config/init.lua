@@ -8,6 +8,8 @@ M = {
 	n_v_i = { "n", "v", "i" },
 }
 
+Leader = "<leader>"
+
 -- Global options
 vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 vim.g.have_nerd_font = true
