@@ -14,7 +14,7 @@ return {
 		require("mini.surround").setup({})
 		-- require("mini.basics").setup({})
 		require("mini.bracketed").setup({})
-		require("mini.bufremove").setup({})
+		-- require("mini.bufremove").setup({})
 		-- local miniclue = require("mini.clue")
 		-- miniclue.setup({
 		-- 	triggers = {
@@ -121,25 +121,5 @@ return {
 		-- require("mini.doc").setup({})
 		require("mini.fuzzy").setup({})
 		-- require("mini.test").setup({})
-		vim.keymap.set("n", Leader .. "bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
-		vim.keymap.set("n", Leader .. "bw", "<CMD>lua MiniBufremove.wipeout()<CR>", { desc = "Delete" })
-
-		vim.keymap.set("n", Leader .. "sw0", MiniSessions.write, { desc = "Last" })
-		vim.keymap.set("n", Leader .. "sr0", MiniSessions.read, { desc = "Last" })
-		local sessions = { "1", "2", "3", "4" }
-		for _, value in ipairs(sessions) do
-			vim.keymap.set(
-				"n",
-				Leader .. "sw" .. value,
-				"<CMD>lua MiniSessions.write('" .. value .. "')<CR>",
-				{ desc = value }
-			)
-			vim.keymap.set(
-				"n",
-				Leader .. "sr" .. value,
-				"<CMD>lua MiniSessions.read('" .. value .. "')<CR>",
-				{ desc = value }
-			)
-		end
 	end,
 }

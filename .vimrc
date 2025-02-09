@@ -18,6 +18,8 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 " Keymaps "
 """""""""""
 
+let mapleader = " " " map leader to Space
+
 " Exit terminal mode with <Esc>
 tnoremap <Esc> <C-\><C-n>
 
@@ -45,8 +47,6 @@ nnoremap <C-l> <C-w>l
 vnoremap <leader>rf "hy:%s/<C-r>h/
 vnoremap <leader>rl "hy:s/<C-r>h/
 
-nnoremap x "_x
-
 """""""""""
 " Options "
 """""""""""
@@ -68,9 +68,8 @@ set nohlsearch
 set notitle
 set number
 set relativenumber
-set scrolloff=8
-set sidescrolloff=4
-set termguicolors
+set scrolloff=7
+set sidescrolloff=8
 set signcolumn=yes
 set showmode
 set cmdheight=1
