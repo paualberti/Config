@@ -1,13 +1,11 @@
--- Autocommand: When a terminal opens, disable line numbers
-vim.api.nvim_create_autocmd("TermOpen", {
+vim.api.nvim_create_autocmd("TermOpen", { -- Disable line numbers
 	callback = function()
 		vim.o.number = false -- Disable absolute line numbers
 		vim.o.relativenumber = false -- Disable relative line numbers
 	end,
 })
 
--- Autocommand: When a terminal closes, restore normal editor settings
-vim.api.nvim_create_autocmd("TermClose", {
+vim.api.nvim_create_autocmd("TermClose", { -- Restore line numbers
 	callback = function()
 		vim.o.number = true -- Enable absolute line numbers
 		vim.o.relativenumber = true -- Enable relative line numbers
@@ -36,7 +34,8 @@ local function close_open_terminals()
 end
 
 -- Create a user command to close open terminals
-vim.api.nvim_create_user_command("TerminalClose", close_open_terminals, {})
+local term_close = "TermClose"
+vim.api.nvim_create_user_command(term_close, close_open_terminals, {})
 
 -- Function to open a terminal or restart it
 local function open_terminal()
@@ -49,11 +48,12 @@ local function open_terminal()
 	vim.cmd.wincmd("J") -- Move it to the bottom
 	vim.cmd.term() -- Start terminal
 	vim.cmd.resize(height) -- Resize terminal to 'height' lines
-	vim.cmd("normal <C-\\><C-n>") -- Enter terminal mode
+	vim.cmd.wincmd("k")
 end
 
 -- Create a user command to open a terminal
-vim.api.nvim_create_user_command("TerminalOpen", open_terminal, {})
+local term_open = "TermOpen"
+vim.api.nvim_create_user_command(term_open, open_terminal, {})
 
 -- Function to send a command to the terminal
 local function send_to_terminal(cmd)
@@ -80,20 +80,13 @@ local function send_to_terminal(cmd)
 end
 
 -- Create a user command to send commands to the terminal
-vim.api.nvim_create_user_command("TerminalCommand", function(opts)
+local term_command = "TermCommand"
+vim.api.nvim_create_user_command(term_command, function(opts)
 	local args = vim.split(opts.args, " ") -- Split command arguments into a table
 	send_to_terminal(args) -- Send command to the terminal
 end, { nargs = "+" }) -- Require at least one argument
 
--- Keybinding to open the terminal
-vim.keymap.set(M.n, Leader .. "to", "<CMD>TerminalOpen<CR>", { desc = "Open Terminal" })
-
--- Autocommand: When a terminal opens, set keybindings
-vim.api.nvim_create_autocmd("TermOpen", {
-	callback = function()
-		vim.keymap.set(M.n, Leader .. "t/", "<CMD>TerminalCommand clear<CR>", { desc = "Clear" }) -- Clear terminal output
-		vim.keymap.set(M.n, Leader .. "tc", "<CMD>TerminalClose<CR>", { desc = "Close" }) -- Clear terminal output
-		vim.keymap.set(M.n, Leader .. "tm", "<CMD>TerminalCommand make<CR>", { desc = "Run 'make'" }) -- Run 'make' command
-		vim.keymap.set(M.n, Leader .. "ts", ":TerminalCommand ", { desc = "Send Command" }) -- Send Command command
-	end,
-})
+-- Keybinding related to the terminal
+vim.keymap.set("n", Leader .. "to", "<CMD>" .. term_open .. "<CR>", { desc = "Open Terminal" })
+vim.keymap.set("n", Leader .. "tc", "<CMD>" .. term_close .. "<CR>", { desc = "Close" }) -- Close open terminals
+vim.keymap.set("n", Leader .. "ts", ":" .. term_command .. " ", { desc = "Send Command" }) -- Send Command

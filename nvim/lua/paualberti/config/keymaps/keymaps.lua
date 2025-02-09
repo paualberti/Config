@@ -1,0 +1,62 @@
+-----------------
+-- Set keymaps --
+-----------------
+
+vim.keymap.set("n", Leader .. "x", "<CMD>source<CR>", { desc = "Source file" })
+
+vim.keymap.set("n", Leader .. "bs", ":setlocal spelllang=", { desc = "Spanish" })
+vim.keymap.set("n", Leader .. "bf", "1z=", { desc = "Insert first" })
+vim.keymap.set("n", Leader .. "bi", "=gg=G", { desc = "Indent" })
+
+-- Some convenient keymaps
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- Add/remove ; at EOF
+vim.keymap.set({ "n", "v", "i" }, "<C-;>", "<ESC>mz:s/$/;<CR>`z")
+vim.keymap.set({ "n", "v", "i" }, "<C-.>", "<ESC>mz:s/;$/<CR>`z")
+
+-- Replace visually selected text
+vim.keymap.set("v", Leader .. "rf", '"hy:%s/<C-r>h/', { desc = "in File" })
+vim.keymap.set("v", Leader .. "rl", '"hy:s/<C-r>h/', { desc = "in Line" })
+
+-- stylua: ignore
+vim.keymap.set({ "n", "v" }, "Q", function() print("Q is disabled") end)
+
+-- Move by visible lines. Notes:
+-- - Don't map in Operator-pending mode because it severely changes behavior:
+--   like `dj` on non-wrapped line will not delete it.
+-- - Condition on `v:count == 0` to allow easier use of relative line numbers.
+vim.keymap.set({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
+vim.keymap.set({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
+
+-- Copy/paste with system clipboard
+vim.keymap.set({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "gp", '"+p', { desc = "Paste from system clipboard" })
+-- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
+vim.keymap.set("x", "gp", '"+P', { desc = "Paste from system clipboard" })
+
+-- Reselect latest changed, put, or yanked text
+vim.keymap.set(
+	"n",
+	"gV",
+	'"`[" . strpart(getregtype(), 0, 1) . "`]"',
+	{ expr = true, replace_keycodes = false, desc = "Visually select changed text" }
+)
+
+-- Search inside visually highlighted text. Use `silent = false` for it to
+-- make effect immediately.
+vim.keymap.set("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
+
+-- Search visually selected text (slightly better than builtins in
+-- Neovim>=0.8 but slightly worse than builtins in Neovim>=0.10)
+-- TODO: Remove this after compatibility with Neovim=0.9 is dropped
+if vim.fn.has("nvim-0.10") == 0 then
+	vim.keymap.set("x", "*", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]], { desc = "Search forward" })
+	vim.keymap.set("x", "#", [[y?\V<C-R>=escape(@", '?\')<CR><CR>]], { desc = "Search backward" })
+end
+
+vim.keymap.set({ "n", "i", "x" }, "<C-s>", function()
+	vim.cmd.update()
+	vim.cmd.redraw()
+end, { desc = "Save" })

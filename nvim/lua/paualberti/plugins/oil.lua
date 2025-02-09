@@ -3,9 +3,9 @@ return {
 	opts = {
 		default_file_explorer = false,
 		keymaps = {
-			["q"] = { "actions.close", mode = M.n },
+			["q"] = { "actions.close", mode = "n" },
 		},
-		vim.keymap.set(M.n, "-", "<CMD>Oil<CR>", { desc = "Open parent dir with Oil" }),
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent dir with Oil" }),
 	},
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 }

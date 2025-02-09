@@ -12,65 +12,77 @@ return {
 		-- require('mini.snippets').setup({})
 		require("mini.splitjoin").setup({})
 		require("mini.surround").setup({})
-		require("mini.basics").setup({})
+		-- require("mini.basics").setup({})
 		require("mini.bracketed").setup({})
 		require("mini.bufremove").setup({})
-		local miniclue = require("mini.clue")
-		miniclue.setup({
-			triggers = {
-				-- -- Leader triggers
-				-- { mode = "n", keys = Leader .. "" },
-				-- { mode = "x", keys = Leader .. "" },
-				--
-				-- -- Built-in completion
-				-- { mode = "i", keys = "<C-x>" },
-				--
-				-- -- `g` key
-				-- { mode = "n", keys = "g" },
-				-- { mode = "x", keys = "g" },
-				--
-				-- -- Marks
-				-- { mode = "n", keys = "'" },
-				-- { mode = "n", keys = "`" },
-				-- { mode = "x", keys = "'" },
-				-- { mode = "x", keys = "`" },
-				--
-				-- -- Registers
-				-- { mode = "n", keys = '"' },
-				-- { mode = "x", keys = '"' },
-				-- { mode = "i", keys = "<C-r>" },
-				-- { mode = "c", keys = "<C-r>" },
-				--
-				-- -- Window commands
-				-- { mode = "n", keys = "<C-w>" },
-				--
-				-- -- `z` key
-				-- { mode = "n", keys = "z" },
-				-- { mode = "x", keys = "z" },
-			},
-			clues = {
-				-- Enhance this by adding descriptions for <leader> mapping groups
-				miniclue.gen_clues.builtin_completion(),
-				miniclue.gen_clues.g(),
-				miniclue.gen_clues.marks(),
-				miniclue.gen_clues.registers(),
-				miniclue.gen_clues.windows(),
-				miniclue.gen_clues.z(),
-
-				{ mode = "n", keys = Leader .. "f", desc = "Find" },
-			},
-			window = {
-				-- Floating window config
-				config = {},
-
-				-- Delay before showing clue window
-				delay = 0,
-
-				-- Keys to scroll inside the clue window
-				scroll_down = "<C-d>",
-				scroll_up = "<C-u>",
-			},
-		})
+		-- local miniclue = require("mini.clue")
+		-- miniclue.setup({
+		-- 	triggers = {
+		-- 		-- Leader triggers
+		-- 		{ mode = "n", keys = Leader .. "" },
+		-- 		{ mode = "x", keys = Leader .. "" },
+		--
+		-- 		-- Built-in completion
+		-- 		{ mode = "i", keys = "<C-x>" },
+		--
+		-- 		-- `g` key
+		-- 		{ mode = "n", keys = "g" },
+		-- 		{ mode = "x", keys = "g" },
+		--
+		-- 		-- Marks
+		-- 		{ mode = "n", keys = "'" },
+		-- 		{ mode = "n", keys = "`" },
+		-- 		{ mode = "x", keys = "'" },
+		-- 		{ mode = "x", keys = "`" },
+		--
+		-- 		-- Registers
+		-- 		{ mode = "n", keys = '"' },
+		-- 		{ mode = "x", keys = '"' },
+		-- 		{ mode = "i", keys = "<C-r>" },
+		-- 		{ mode = "c", keys = "<C-r>" },
+		--
+		-- 		-- Window commands
+		-- 		{ mode = "n", keys = "<C-w>" },
+		--
+		-- 		-- Toggle commands
+		-- 		-- { mode = "n", keys = "\\" },
+		--
+		-- 		-- `z` key
+		-- 		{ mode = "n", keys = "z" },
+		-- 		{ mode = "x", keys = "z" },
+		-- 	},
+		-- 	clues = {
+		-- 		-- Enhance this by adding descriptions for <leader> mapping groups
+		-- 		miniclue.gen_clues.builtin_completion(),
+		-- 		miniclue.gen_clues.g(),
+		-- 		miniclue.gen_clues.marks(),
+		-- 		miniclue.gen_clues.registers(),
+		-- 		miniclue.gen_clues.windows(),
+		-- 		miniclue.gen_clues.z(),
+		--
+		-- 		{ mode = "n", keys = Leader .. "b", desc = "Buffer" },
+		-- 		{ mode = "n", keys = Leader .. "c", desc = "Code" },
+		-- 		{ mode = "n", keys = Leader .. "f", desc = "Find" },
+		-- 		{ mode = "n", keys = Leader .. "h", desc = "Harpoon" },
+		-- 		{ mode = "n", keys = Leader .. "p", desc = "Preview" },
+		-- 		{ mode = "n", keys = Leader .. "s", desc = "Session" },
+		-- 		{ mode = "n", keys = Leader .. "sr", desc = "Read" },
+		-- 		{ mode = "n", keys = Leader .. "sw", desc = "Write" },
+		-- 		{ mode = "n", keys = Leader .. "t", desc = "Terminal" },
+		-- 		{ mode = "v", keys = Leader .. "r", desc = "Rename" },
+		-- 	},
+		-- 	window = {
+		-- 		-- Floating window config
+		-- 		config = {},
+		--
+		-- 		-- Delay before showing clue window
+		-- 		delay = 0,
+		--
+		-- 		-- Keys to scroll inside the clue window
+		-- 		scroll_down = "<C-d>",
+		-- 		scroll_up = "<C-u>",
+		-- 	},
+		-- })
 		require("mini.diff").setup({})
 		require("mini.extra").setup({})
 		-- require('mini.files').setup({})
@@ -103,26 +115,27 @@ return {
 		-- require("mini.map").setup({})
 		require("mini.notify").setup({})
 		-- require('mini.starter').setup({})
-		require("mini.statusline").setup({})
+		-- require("mini.statusline").setup({})
 		require("mini.tabline").setup({})
 		require("mini.trailspace").setup({})
 		-- require("mini.doc").setup({})
 		require("mini.fuzzy").setup({})
 		-- require("mini.test").setup({})
-		vim.keymap.set(M.n, Leader .. "bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
+		vim.keymap.set("n", Leader .. "bd", "<CMD>lua MiniBufremove.delete()<CR>", { desc = "Delete" })
+		vim.keymap.set("n", Leader .. "bw", "<CMD>lua MiniBufremove.wipeout()<CR>", { desc = "Delete" })
 
-		vim.keymap.set(M.n, Leader .. "sw0", MiniSessions.write, { desc = "Last" })
-		vim.keymap.set(M.n, Leader .. "sr0", MiniSessions.read, { desc = "Last" })
+		vim.keymap.set("n", Leader .. "sw0", MiniSessions.write, { desc = "Last" })
+		vim.keymap.set("n", Leader .. "sr0", MiniSessions.read, { desc = "Last" })
 		local sessions = { "1", "2", "3", "4" }
 		for _, value in ipairs(sessions) do
 			vim.keymap.set(
-				M.n,
+				"n",
 				Leader .. "sw" .. value,
 				"<CMD>lua MiniSessions.write('" .. value .. "')<CR>",
 				{ desc = value }
 			)
 			vim.keymap.set(
-				M.n,
+				"n",
 				Leader .. "sr" .. value,
 				"<CMD>lua MiniSessions.read('" .. value .. "')<CR>",
 				{ desc = value }
