@@ -85,6 +85,7 @@ set noerrorbells
 set noswapfile
 set nobackup
 set undofile
+set undodir=$HOME/.vim/undodir/
 set backspace=indent,eol,start
 set splitright
 set splitbelow
