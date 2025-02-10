@@ -40,46 +40,45 @@ return {
 		config = function(_, opts)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function()
-					vim.keymap.set("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", { desc = "Definition" })
-					vim.keymap.set("n", "gD", "<CMD>FzfLua lsp_declarations<CR>", { desc = "Declaration" })
-					vim.keymap.set("n", "gR", "<CMD>FzfLua lsp_references<CR>", { desc = "References" })
-					vim.keymap.set("n", "gI", "<CMD>FzfLua lsp_implementation<CR>", { desc = "Implementation" })
+					local theme = require("telescope.themes").get_dropdown({ previewer = true })
+					local builtin = require("telescope.builtin")
 
-					vim.keymap.set("n", Leader .. "ca", "<CMD>FzfLua lsp_code_actions<CR>", { desc = "Action" })
-					vim.keymap.set("n", Leader .. "cd", "<CMD>FzfLua lsp_typedefs<CR>", { desc = "Type Definition" })
+					vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Definition" })
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Declaration" })
+					vim.keymap.set("n", "gR", builtin.lsp_references, { desc = "References" })
+					vim.keymap.set("n", "gI", builtin.lsp_implementations, { desc = "Implementation" })
+
+					vim.keymap.set("n", Leader .. "ca", vim.lsp.buf.code_action, { desc = "Action" })
+					vim.keymap.set("n", Leader .. "cd", builtin.lsp_definitions, { desc = "Type Definition" })
 					vim.keymap.set("n", Leader .. "cr", vim.lsp.buf.rename, { desc = "Rename" })
-					vim.keymap.set(
-						"n",
-						Leader .. "cs",
-						"<CMD>FzfLua lsp_document_symbols<CR>",
-						{ desc = "Document Symbols" }
-					)
-					vim.keymap.set(
-						"n",
-						Leader .. "cw",
-						"<CMD>FzfLua lsp_workspace_symbols<CR>",
-						{ desc = "Workspace Symbols" }
-					)
+					vim.keymap.set("n", Leader .. "cs", builtin.lsp_document_symbols, { desc = "Document Symbols" })
+					vim.keymap.set("n", Leader .. "cw", builtin.lsp_workspace_symbols, { desc = "Workspace Symbols" })
+
+					-- vim.keymap.set("n", "gd", "<Cmd>FzfLua lsp_definitions<CR>", { desc = "Definition" })
+					-- vim.keymap.set("n", "gD", "<Cmd>FzfLua lsp_declarations<CR>", { desc = "Declaration" })
+					-- vim.keymap.set("n", "gR", "<Cmd>FzfLua lsp_references<CR>", { desc = "References" })
+					-- vim.keymap.set("n", "gI", "<Cmd>FzfLua lsp_implementations<CR>", { desc = "Implementation" })
+
+					-- vim.keymap.set("n", Leader .. "ca", "<Cmd>FzfLua lsp_code_actions<CR>", { desc = "Action" })
+					-- vim.keymap.set("n", Leader .. "cd", "<Cmd>FzfLua lsp_typedefs<CR>", { desc = "Type Definition" })
+					-- vim.keymap.set("n", Leader .. "cr", vim.lsp.buf.rename, { desc = "Rename" })
+					-- vim.keymap.set(
+					-- 	"n",
+					-- 	Leader .. "cs",
+					-- 	"<Cmd>FzfLua lsp_document_symbols<CR>",
+					-- 	{ desc = "Document Symbols" }
+					-- )
+					-- vim.keymap.set(
+					-- 	"n",
+					-- 	Leader .. "cw",
+					-- 	"<Cmd>FzfLua lsp_workspace_symbols<CR>",
+					-- 	{ desc = "Workspace Symbols" }
+					-- )
 				end,
 			})
 
-			vim.api.nvim_create_autocmd("LspDetach", {
-				callback = function()
-					vim.keymap.del("n", "gd")
-					vim.keymap.del("n", "gD")
-					vim.keymap.del("n", "gR")
-					vim.keymap.del("n", "gI")
-
-					vim.keymap.del("n", Leader .. "ca")
-					vim.keymap.del("n", Leader .. "cd")
-					vim.keymap.del("n", Leader .. "cr")
-					vim.keymap.del("n", Leader .. "cs")
-					vim.keymap.del("n", Leader .. "cw")
-				end,
-			})
-
-			vim.keymap.set("n", Leader .. "cl", "<CMD>Lazy<CR>", { desc = "Lazy" })
-			vim.keymap.set("n", Leader .. "cm", "<CMD>Mason<CR>", { desc = "Mason" })
+			vim.keymap.set("n", Leader .. "cl", "<Cmd>Lazy<CR>", { desc = "Lazy" })
+			vim.keymap.set("n", Leader .. "cm", "<Cmd>Mason<CR>", { desc = "Mason" })
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())

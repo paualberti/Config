@@ -112,17 +112,6 @@ return {
 					cwd = vim.fn.stdpath("config"),
 				}))
 			end, { desc = "Neovim Config Files" })
-
-			-- Custom path search
-			vim.api.nvim_create_user_command("SearchFileCwd", function(opts)
-				builtin.find_files(vim.tbl_extend("force", theme, { cwd = "$HOME/" .. opts.args }))
-			end, { nargs = 1 })
-			vim.keymap.set("n", Leader .. "sf", ":SearchFileCwd ", { desc = "Files" })
-
-			vim.api.nvim_create_user_command("SearchGrepCwd", function(opts)
-				builtin.live_grep(vim.tbl_extend("force", theme, { cwd = "$HOME/" .. opts.args }))
-			end, { nargs = 1 })
-			vim.keymap.set("n", Leader .. "sg", ":SearchGrepCwd ", { desc = "by Grep" })
 		end,
 	},
 }

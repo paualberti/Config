@@ -35,9 +35,9 @@ end
 
 -- Keymap to toggle diagnostics
 vim.keymap.set("n", "\\d", toggle_diagnostics, { desc = "Toggle LSP Diagnostics" })
-vim.keymap.set("n", "\\h", "<CMD>ToggleOpt hlsearch<CR>", { desc = "HlSearch" })
-vim.keymap.set("n", "\\l", "<CMD>ToggleOpt list<CR>", { desc = "List" })
-vim.keymap.set("n", "\\n", "<CMD>ToggleOpt number<CR>", { desc = "Number" })
-vim.keymap.set("n", "\\r", "<CMD>ToggleOpt relativenumber<CR>", { desc = "Relativenumber" })
-vim.keymap.set("n", "\\s", "<CMD>ToggleOpt spell<CR>", { desc = "Spell" })
-vim.keymap.set("n", "\\w", "<CMD>ToggleOpt wrap<CR>", { desc = "Wrap" })
+vim.keymap.set("n", "\\h", "<Cmd>ToggleOpt hlsearch<CR>", { desc = "HlSearch" })
+vim.keymap.set("n", "\\l", "<Cmd>ToggleOpt list<CR>", { desc = "List" })
+vim.keymap.set("n", "\\n", "<Cmd>ToggleOpt number<CR>", { desc = "Number" })
+vim.keymap.set("n", "\\r", "<Cmd>ToggleOpt relativenumber<CR>", { desc = "Relativenumber" })
+vim.keymap.set("n", "\\s", "<Cmd>ToggleOpt spell<CR>", { desc = "Spell" })
+vim.keymap.set("n", "\\w", "<Cmd>ToggleOpt wrap<CR>", { desc = "Wrap" })

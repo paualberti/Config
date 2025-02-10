@@ -2,19 +2,19 @@
 -- Set keymaps --
 -----------------
 
-vim.keymap.set("n", Leader .. "x", "<CMD>source<CR>", { desc = "Source file" })
+vim.keymap.set("n", Leader .. "x", "<Cmd>source<CR>", { desc = "Source file" })
 
 vim.keymap.set("n", Leader .. "bs", ":setlocal spelllang=", { desc = "Spanish" })
 vim.keymap.set("n", Leader .. "bf", "1z=", { desc = "Insert first" })
 vim.keymap.set("n", Leader .. "bi", "=gg=G", { desc = "Indent" })
 
 -- Some convenient keymaps
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Add/remove ; at EOF
-vim.keymap.set({ "n", "v", "i" }, "<C-;>", "<ESC>mz:s/$/;<CR>`z")
-vim.keymap.set({ "n", "v", "i" }, "<C-.>", "<ESC>mz:s/;$/<CR>`z")
+vim.keymap.set({ "n", "v", "i" }, "<C-;>", "<Esc>mz:s/$/;<CR>`z")
+vim.keymap.set({ "n", "v", "i" }, "<C-.>", "<Esc>mz:s/;$/<CR>`z")
 
 -- Replace visually selected text
 vim.keymap.set("v", Leader .. "rf", '"hy:%s/<C-r>h/', { desc = "in File" })
@@ -36,14 +36,6 @@ vim.keymap.set("n", "gp", '"+p', { desc = "Paste from system clipboard" })
 -- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
 vim.keymap.set("x", "gp", '"+P', { desc = "Paste from system clipboard" })
 
--- Reselect latest changed, put, or yanked text
-vim.keymap.set(
-	"n",
-	"gV",
-	'"`[" . strpart(getregtype(), 0, 1) . "`]"',
-	{ expr = true, replace_keycodes = false, desc = "Visually select changed text" }
-)
-
 -- Search inside visually highlighted text. Use `silent = false` for it to
 -- make effect immediately.
 vim.keymap.set("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
@@ -56,7 +48,10 @@ if vim.fn.has("nvim-0.10") == 0 then
 	vim.keymap.set("x", "#", [[y?\V<C-R>=escape(@", '?\')<CR><CR>]], { desc = "Search backward" })
 end
 
-vim.keymap.set({ "n", "i", "x" }, "<C-s>", function()
-	vim.cmd.update()
-	vim.cmd.redraw()
-end, { desc = "Save" })
+-- Save and go to normal mode
+vim.keymap.set(
+	{ "n", "i", "x" },
+	"<C-S>",
+	"<Esc><Cmd>silent! update | redraw<CR>",
+	{ desc = "Save and go to Normal mode" }
+)

@@ -10,6 +10,6 @@ return {
 		},
 	},
 	keys = { -- Example mapping to toggle outline
-		{ "\\o", "<CMD>Outline<CR>", desc = "Outline" },
+		{ "\\o", "<Cmd>Outline<CR>", desc = "Outline" },
 	},
 }

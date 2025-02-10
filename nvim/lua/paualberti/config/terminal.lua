@@ -87,6 +87,6 @@ vim.api.nvim_create_user_command(term_command, function(opts)
 end, { nargs = "+" }) -- Require at least one argument
 
 -- Keybinding related to the terminal
-vim.keymap.set("n", Leader .. "to", "<CMD>" .. term_open .. "<CR>", { desc = "Open Terminal" })
-vim.keymap.set("n", Leader .. "tc", "<CMD>" .. term_close .. "<CR>", { desc = "Close" }) -- Close open terminals
+vim.keymap.set("n", Leader .. "to", "<Cmd>" .. term_open .. "<CR>", { desc = "Open Terminal" })
+vim.keymap.set("n", Leader .. "tc", "<Cmd>" .. term_close .. "<CR>", { desc = "Close" }) -- Close open terminals
 vim.keymap.set("n", Leader .. "ts", ":" .. term_command .. " ", { desc = "Send Command" }) -- Send Command

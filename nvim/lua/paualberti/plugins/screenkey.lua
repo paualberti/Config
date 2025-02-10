@@ -13,6 +13,6 @@ return {
 		},
 		show_leader = false,
 		group_mappings = true,
-		vim.keymap.set("n", "\\S", "<CMD>Screenkey toggle<CR>", { desc = "Screenkey" }),
+		vim.keymap.set("n", "\\S", "<Cmd>Screenkey toggle<CR>", { desc = "Screenkey" }),
 	},
 }
