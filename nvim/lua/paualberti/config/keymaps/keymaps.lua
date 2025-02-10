@@ -20,6 +20,10 @@ vim.keymap.set({ "n", "v", "i" }, "<C-.>", "<Esc>mz:s/;$/<CR>`z")
 vim.keymap.set("v", Leader .. "rf", '"hy:%s/<C-r>h/', { desc = "in File" })
 vim.keymap.set("v", Leader .. "rl", '"hy:s/<C-r>h/', { desc = "in Line" })
 
+-- Scrolling
+vim.keymap.set("n", "<ScrollMouseDown", "j", { desc = "Scroll Down" })
+vim.keymap.set("n", "<ScrollMouseUp", "k", { desc = "Scroll Up" })
+
 -- stylua: ignore
 vim.keymap.set({ "n", "v" }, "Q", function() print("Q is disabled") end)
 

@@ -16,6 +16,7 @@ return {
 			{ mode = { "n", "x" }, Leader .. "r", group = "Rename" },
 			{ mode = { "n", "x" }, Leader .. "s", group = "Search in Cwd" },
 			{ mode = { "n", "x" }, Leader .. "t", group = "Terminal" },
+			{ mode = { "n", "x" }, Leader .. "w", group = "Yeet" },
 		},
 	},
 }

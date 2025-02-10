@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("TermClose", { -- Restore line numbers
 })
 
 -- Function to locate an existing terminal buffer
-local function locate_terminal()
+function Locate_terminal()
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 		if vim.bo[buf].buftype == "terminal" then
 			return buf -- Return terminal buffer number
@@ -23,7 +23,7 @@ local function locate_terminal()
 end
 
 local function close_open_terminals()
-	local term_bufnr = locate_terminal()
+	local term_bufnr = Locate_terminal()
 	if term_bufnr then
 		-- Close the existing terminals
 		vim.api.nvim_buf_delete(term_bufnr, { force = true }) -- Force close
@@ -57,7 +57,7 @@ vim.api.nvim_create_user_command(term_open, open_terminal, {})
 
 -- Function to send a command to the terminal
 local function send_to_terminal(cmd)
-	local term_bufnr = locate_terminal() -- Find the terminal buffer
+	local term_bufnr = Locate_terminal() -- Find the terminal buffer
 	if term_bufnr then
 		local terminal_id = vim.api.nvim_buf_get_var(term_bufnr, "terminal_job_id") -- Get terminal job ID
 		if terminal_id then
@@ -87,6 +87,6 @@ vim.api.nvim_create_user_command(term_command, function(opts)
 end, { nargs = "+" }) -- Require at least one argument
 
 -- Keybinding related to the terminal
-vim.keymap.set("n", Leader .. "to", "<Cmd>" .. term_open .. "<CR>", { desc = "Open Terminal" })
-vim.keymap.set("n", Leader .. "tc", "<Cmd>" .. term_close .. "<CR>", { desc = "Close" }) -- Close open terminals
+vim.keymap.set("n", Leader .. "to", "<Cmd>" .. term_open .. "<CR>", { desc = "Open" })
+vim.keymap.set("n", Leader .. "tc", "<Cmd>" .. term_close .. "<CR>", { desc = "Close All" }) -- Close open terminals
 vim.keymap.set("n", Leader .. "ts", ":" .. term_command .. " ", { desc = "Send Command" }) -- Send Command

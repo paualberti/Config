@@ -3,7 +3,8 @@ return {
 	lazy = true,
 	dependencies = {
 		-- You can choose one of the following pickers
-		"ibhagwan/fzf-lua",
+		"nvim-telescope/telescope.nvim",
+		-- "ibhagwan/fzf-lua",
 		-- "echasnovski/mini.pick",
 	},
 	opts = {},
