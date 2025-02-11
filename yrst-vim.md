@@ -6,9 +6,9 @@ Alternative layouts [document](https://docs.google.com/document/d/1Ic-h8UxGe5-Q0
 Analysed with [keysolve](https://clemenpine.github.io/keysolve-web/)<br>
 
 ```
-p l w m g z f o u '
+p l w m q z f o u '
 y r s t k j n a e i
-q x c d v b h , ; .
+g x c d v b h , ; .
 ```
 
 ---
@@ -63,7 +63,7 @@ xkb_symbols "basic" {
     key <AD02> {	[	  l,	L		]	};
     key <AD03> {	[	  w,	W		]	};
     key <AD04> {	[	  m,	M		]	};
-    key <AD05> {	[	  g,	G		]	};
+    key <AD05> {	[	  q,	Q		]	};
     key <AD06> {	[	  z,	Z		]	};
     key <AD07> {	[	  f,	F		]	};
     key <AD08> {	[	  o,	O		]	};
@@ -84,7 +84,7 @@ xkb_symbols "basic" {
     key <AC10> {	[ 	  i,	I    		]	};
     key <AC11> {	[     slash,	question	]	};
 
-    key <AB01> {	[	  q,	Q 		]	};
+    key <AB01> {	[	  g,	G 		]	};
     key <AB02> {	[	  x,	X		]	};
     key <AB03> {	[	  c,	C		]	};
     key <AB04> {	[	  d,	D		]	};

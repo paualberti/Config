@@ -7,5 +7,5 @@ return {
 		},
 		vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent dir with Oil" }),
 	},
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 }

@@ -12,10 +12,6 @@ vim.keymap.set("n", Leader .. "bi", "=gg=G", { desc = "Indent" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Add/remove ; at EOF
-vim.keymap.set({ "n", "v", "i" }, "<C-;>", "<Esc>mz:s/$/;<CR>`z")
-vim.keymap.set({ "n", "v", "i" }, "<C-.>", "<Esc>mz:s/;$/<CR>`z")
-
 -- Replace visually selected text
 vim.keymap.set("v", Leader .. "rf", '"hy:%s/<C-r>h/', { desc = "in File" })
 vim.keymap.set("v", Leader .. "rl", '"hy:s/<C-r>h/', { desc = "in Line" })
