@@ -1,10 +1,9 @@
-Leader = "<space>"
+Leader = " "
 
 -- Global options
 vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 vim.g.have_nerd_font = true
-vim.g.mapleader = "<space>"
-vim.g.maplocalleader = "<space>"
+vim.g.mapleader = Leader
 
 require("paualberti.config.autocmd")
 require("paualberti.config.options")

@@ -20,7 +20,8 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			-- "ibhagwan/fzf-lua",
+			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
 		},
 		opts = {
 			servers = {
@@ -47,16 +48,16 @@ return {
 						vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", desc, { buffer = event.buf }))
 					end
 
-					map("n", "gd", function()
-						builtin.lsp_definitions(theme)
-					end, { desc = "Definition" })
 					map("n", "gD", vim.lsp.buf.declaration, { desc = "Declaration" })
-					map("n", "gR", function()
-						builtin.lsp_references(theme)
-					end, { desc = "References" })
 					map("n", "gI", function()
 						builtin.lsp_implementations(theme)
 					end, { desc = "Implementation" })
+					map("n", "gd", function()
+						builtin.lsp_definitions(theme)
+					end, { desc = "Definition" })
+					map("n", "gr", function()
+						builtin.lsp_references(theme)
+					end, { desc = "References" })
 
 					map("n", Leader .. "ca", vim.lsp.buf.code_action, { desc = "Action" })
 					map("n", Leader .. "cd", function()
@@ -69,27 +70,6 @@ return {
 					map("n", Leader .. "cw", function()
 						builtin.lsp_workspace_symbols(theme)
 					end, { desc = "Workspace Symbols" })
-
-					-- map("n", "gd", "<Cmd>FzfLua lsp_definitions<CR>", { desc = "Definition" })
-					-- map("n", "gD", "<Cmd>FzfLua lsp_declarations<CR>", { desc = "Declaration" })
-					-- map("n", "gR", "<Cmd>FzfLua lsp_references<CR>", { desc = "References" })
-					-- map("n", "gI", "<Cmd>FzfLua lsp_implementations<CR>", { desc = "Implementation" })
-
-					-- map("n", Leader .. "ca", "<Cmd>FzfLua lsp_code_actions<CR>", { desc = "Action" })
-					-- map("n", Leader .. "cd", "<Cmd>FzfLua lsp_typedefs<CR>", { desc = "Type Definition" })
-					-- map("n", Leader .. "cr", vim.lsp.buf.rename, { desc = "Rename" })
-					-- map(
-					-- 	"n",
-					-- 	Leader .. "cs",
-					-- 	"<Cmd>FzfLua lsp_document_symbols<CR>",
-					-- 	{ desc = "Document Symbols" }
-					-- )
-					-- map(
-					-- 	"n",
-					-- 	Leader .. "cw",
-					-- 	"<Cmd>FzfLua lsp_workspace_symbols<CR>",
-					-- 	{ desc = "Workspace Symbols" }
-					-- )
 				end,
 			})
 

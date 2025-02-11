@@ -63,8 +63,8 @@ return {
 	-- { "echasnovski/mini.map", version = "*", opts = {}, event = 'BufEnter' },
 	{ "echasnovski/mini.notify", version = "*", opts = {}, event = "BufEnter" },
 	-- { "echasnovski/mini.starter", version = "*", opts = {}, event = 'BufEnter' },
-	{ "echasnovski/mini.statusline", version = "*", opts = {}, event = "BufEnter" },
-	{ "echasnovski/mini.tabline", version = "*", opts = {}, event = "BufEnter" },
+	-- { "echasnovski/mini.statusline", version = "*", opts = {}, event = "BufEnter" },
+	-- { "echasnovski/mini.tabline", version = "*", opts = {}, event = "BufEnter" },
 	{ "echasnovski/mini.trailspace", version = "*", opts = {}, event = "BufEnter" },
 
 	-- Other

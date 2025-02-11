@@ -15,7 +15,9 @@ g x c d v b h , ; .
 
 > [!important]
 > RALT becomes BackSpace
-> CapsLock to Ctrl or Esc is recommended
+
+> [!tip]
+> Remap CapsLock to Ctrl/Esc
 
 ## What it does
 

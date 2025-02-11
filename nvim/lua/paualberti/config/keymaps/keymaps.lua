@@ -20,8 +20,10 @@ vim.keymap.set("v", Leader .. "rl", '"hy:s/<C-r>h/', { desc = "in Line" })
 vim.keymap.set("n", "<ScrollMouseDown", "j", { desc = "Scroll Down" })
 vim.keymap.set("n", "<ScrollMouseUp", "k", { desc = "Scroll Up" })
 
--- stylua: ignore
-vim.keymap.set({ "n", "v" }, "Q", function() print("Q is disabled") end)
+-- Disable Q because it's hard to understand
+vim.keymap.set({ "n", "v" }, "Q", function()
+	print("Q is disabled")
+end)
 
 -- Move by visible lines. Notes:
 -- - Don't map in Operator-pending mode because it severely changes behavior:
