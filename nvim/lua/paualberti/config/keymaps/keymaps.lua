@@ -8,8 +8,9 @@ vim.keymap.set("n", Leader .. "bs", ":setlocal spelllang=", { desc = "Spanish" }
 vim.keymap.set("n", Leader .. "bf", "1z=", { desc = "Insert first" })
 vim.keymap.set("n", Leader .. "bi", "=gg=G", { desc = "Indent" })
 
--- Some convenient keymaps
+-- Improve consistency
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set({ "i", "x" }, "<C-c>", "<Esc>")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Replace visually selected text

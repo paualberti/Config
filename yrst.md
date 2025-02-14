@@ -13,11 +13,16 @@ g x c d v b h , ; .
 
 ---
 
+## Get it for yourself
+
+<details><summary>With a generic keyboard</summary>
+
 > [!important]
-> RALT becomes BackSpace
+> This is only a software implementation.<br>
+> When another keyboard is attached it will behave the same and any programmable keyboard may behave strangely.
 
 > [!tip]
-> Remap CapsLock to Ctrl/Esc
+> Remap CapsLock to Ctrl/Esc.
 
 ## What it does
 
@@ -29,11 +34,15 @@ File to edit (sudo access is required)
 sudo vim /usr/share/X11/xkb/symbols/us # or any editor of choice
 ```
 
+If desired, another file can be edited from the same directory. Just remember that the file name is the language name when setting the layout.
+
 ### Look for
 
 ```
-xkb_symbols "basic"
+xkb_symbols "yrst"
 ```
+
+It is the name of the mapping.
 
 And change it to your preferences
 
@@ -43,7 +52,7 @@ And change it to your preferences
 
 ```
 partial alphanumeric_keys
-xkb_symbols "basic" {
+xkb_symbols "yrst" {
 
     name[Group1]= "English (yrst-vim)";
 
@@ -103,8 +112,21 @@ xkb_symbols "basic" {
 ```
 </details>
 
-### Set up the layout
+### Setting the layout
+
+> [!tip]
+> This command will activate the layout, prepare the set of your current one just in case.
 
 ```
-setxkbmap -layout us -variant basic
+setxkbmap -layout us -variant yrst
 ```
+
+If you want it to be a permanent layout feel free to change the name yrst for an existing one after solving the repeated layout issue.
+
+</details>
+
+<details><summary>Using qmk with a programmable keyboard</summary>
+
+In the future I will be adding my 34 key layout for the idank/sweeq, a variant of the ferris/sweep, right below.
+
+</details>

@@ -79,7 +79,7 @@ return {
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", Leader .. "/", function()
-				builtin.current_buffer_fuzzy_find(theme)
+				builtin.current_buffer_fuzzy_find(vim.tbl_extend("force", theme, { previewer = false }))
 			end, { desc = "Grep current buffer" })
 			vim.keymap.set("n", Leader .. "fb", function()
 				builtin.buffers(theme)
@@ -132,7 +132,7 @@ return {
 				builtin.find_files(vim.tbl_extend("force", theme, {
 					cwd = vim.fn.stdpath("config"),
 				}))
-			end, { desc = "Neovim Config Files" })
+			end, { desc = "Neovim Config" })
 
 			-- Custom path search
 			vim.api.nvim_create_user_command("SearchFileCwd", function(opts)

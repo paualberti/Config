@@ -1,0 +1,44 @@
+{
+    "keyboard": "idank/sweeq",
+    "keymap": "yrst",
+    "host_language": "spanish",
+    "layout": "LAYOUT_split_3x5_2",
+    "layers": [
+        [
+        "KC_P",       "KC_L",          "KC_W",          "KC_M",          "KC_Q",       "KC_Z",              "KC_F",         "KC_O",       "KC_U",          "KC_QUOT",
+        "KC_Y",       "KC_R",          "LALT_T(KC_S)",  "LGUI_T(KC_T)",  "KC_K",       "KC_J",              "RGUI_T(KC_N)", "RALT(KC_A)", "KC_E",          "KC_I",
+        "KC_G",       "KC_X",          "KC_C",          "KC_D",          "KC_V",       "KC_B",              "KC_H",         "KC_COMM",    "KC_SCLN",       "KC_DOT",
+        "LT(1, KC_SPC)", "OSM(MOD_LCTL)", "OSM(MOD_RSFT)", "TO(1)"
+        ],            [
+        "KC_ESC",     "KC_AT",         "KC_HASH",       "KC_DLR",        "KC_NO",      "KC_NO",             "KC_UNDS",      "KC_ASTR",    "KC_DEL",        "KC_BSPC",
+        "KC_TAB",     "KC_BSLS",       "KC_LPRN",       "KC_RPRN",       "KC_NO",      "KC_NO",             "KC_MINS",      "KC_PLUS",    "KC_EQL",        "KC_ENT",
+        "KC_PIPE",    "KC_PERC",       "KC_LCBR",       "KC_RCBR",       "KC_NO",      "KC_NO",             "KC_LBRC",      "KC_RBRC",    "KC_SLSH",       "KC_QUES",
+        "TO(0)", "OSM(MOD_LCTL)", "OSM(MOD_LALT)", "OSL(2)"
+        ],            [
+        "KC_ESC",     "KC_7",          "KC_8",          "KC_9",          "KC_NO",      "KC_PGUP",           "KC_PGDN",      "KC_HOME",    "KC_END",        "KC_BSPC",
+        "KC_TAB",     "KC_4",          "KC_5",          "KC_6",          "KC_0",       "KC_KB_VOLUME_UP",   "KC_LEFT",      "KC_UP",      "KC_RGHT",       "KC_ENT",
+        "KC_NO",      "KC_1",          "KC_2",          "KC_3",          "KC_NO",      "KC_KB_VOLUME_DOWN", "KC_GRV",       "KC_DOWN",    "KC_TILD",       "TO(3)",
+        "TO(0)", "OSM(MOD_LCTL)", "OSM(MOD_LALT)", "KC_NO"
+        ],            [
+        "ES_P",       "ES_L",          "ES_W",          "ES_M",          "ES_Q",       "ES_Z",              "ES_F",         "ES_O",       "ES_U",          "ES_QUOT",
+        "ES_Y",       "ES_R",          "ES_S",          "LGUI_T(ES_T)",  "ES_K",       "ES_J",              "RGUI_T(ES_N)", "ES_A",       "ES_E",          "ES_I",
+        "ES_G",       "ES_X",          "ES_C",          "ES_D",          "ES_V",       "ES_B",              "ES_H",         "ES_COMM",    "ES_SCLN",       "ES_DOT",
+        "LT(5, KC_SPC)", "OSL(MOD_RCTL)", "OSM(4)", "TO(5)"
+        ],            [
+        "LSFT(ES_P)", "LSFT(ES_L)",    "LSFT(ES_W)",    "LSFT(ES_M)",    "LSFT(ES_Q)", "LSFT(ES_Z)",        "LSFT(ES_F)",   "LSFT(ES_O)", "LSFT(ES_U)",    "ES_DQUO",
+        "LSFT(ES_Y)", "LSFT(ES_R)",    "LSFT(ES_S)",    "LSFT(ES_T)",    "LSFT(ES_K)", "LSFT(ES_J)",        "LSFT(ES_N)",   "LSFT(ES_A)", "LSFT(ES_E)",    "LSFT(ES_I)",
+        "LSFT(ES_G)", "LSFT(ES_X)",    "LSFT(ES_C)",    "LSFT(ES_D)",    "LSFT(ES_V)", "LSFT(ES_B)",        "LSFT(ES_H)",   "ES_LABK",    "ES_COLN",       "ES_RABK",
+        "KC_NO", "KC_NO", "KC_NO", "KC_NO"
+        ],            [
+        "KC_ESC",     "ES_AT",         "ES_HASH",       "ES_DLR",        "ES_BULT",    "ES_GRV",            "ES_UNDS",      "ES_ASTR",    "OSM(MOD_RSFT)", "KC_BSPC",
+        "KC_TAB",     "ES_BSLS",       "ES_LPRN",       "ES_RPRN",       "ES_CCED",    "ES_ACUT",           "ES_MINS",      "ES_PLUS",    "ES_EQL",        "KC_ENT",
+        "ES_PIPE",    "ES_PERC",       "ES_LCBR",       "ES_RCBR",       "ES_EURO",    "ES_DIAE",           "ES_LBRC",      "ES_RBRC",    "ES_SLSH",       "ES_QUES",
+        "TO(3)", "OSM(MOD_LCTL)", "OSM(MOD_LALT)", "OSL(6)"
+        ],            [
+        "KC_ESC",     "ES_7",          "ES_8",          "ES_9",          "KC_NO",      "KC_PGUP",           "KC_PGDN",      "KC_HOME",    "KC_END",        "KC_BSPC",
+        "KC_TAB",     "ES_4",          "ES_5",          "ES_6",          "ES_0",       "KC_KB_VOLUME_UP",   "KC_LEFT",      "KC_UP",      "KC_RGHT",       "KC_ENT",
+        "KC_NO",      "ES_1",          "ES_2",          "ES_3",          "KC_NO",      "KC_KB_VOLUME_DOWN", "ES_GRV",       "KC_DOWN",    "ES_TILD",       "TO(0)",
+        "TO(3)", "OSM(MOD_LCTL)", "OSM(MOD_LALT)", "KC_NO"
+        ]
+    ]
+}

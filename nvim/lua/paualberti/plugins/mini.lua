@@ -6,10 +6,10 @@ return {
 	-- { "echasnovski/mini.completion", version = "*", opts = {}, event = 'InsertEnter' },
 	-- { "echasnovski/mini.move", version = "*", opts = {}, event = 'BufEnter' },
 	-- { "echasnovski/mini.operators", version = "*", opts = {}, event = 'BufEnter' },
-	{ "echasnovski/mini.pairs", version = "*", opts = {}, event = "InsertEnter" },
+	{ "echasnovski/mini.pairs", version = "*", opts = { mappings = { ["`"] = false } }, event = "InsertEnter" },
 	-- { "echasnovski/mini.snippets", version = "*", opts = {}, event = 'InsertEnter' },
 	{ "echasnovski/mini.splitjoin", version = "*", opts = {}, event = "BufEnter" },
-	{ "echasnovski/mini.surround", version = "*", opts = {}, event = "InsertEnter" },
+	{ "echasnovski/mini.surround", version = "*", opts = {}, event = "BufEnter" },
 
 	-- General workflow
 	-- { "echasnovski/mini.basics", version = "*", opts = {}, event = "BufEnter" },
@@ -59,7 +59,7 @@ return {
 	},
 	-- { "echasnovski/mini.hues", version = "*", opts = { background = "#002734", foreground = "#c0c8cc" }, event = 'BufEnter' },
 	-- { "echasnovski/mini.icons", version = "*", opts = {}, event = 'BufEnter' },
-	{ "echasnovski/mini.indentscope", version = "*", opts = {}, event = "BufEnter" },
+	{ "echasnovski/mini.indentscope", version = "*", opts = {}, lazy = true },
 	-- { "echasnovski/mini.map", version = "*", opts = {}, event = 'BufEnter' },
 	{ "echasnovski/mini.notify", version = "*", opts = {}, event = "BufEnter" },
 	-- { "echasnovski/mini.starter", version = "*", opts = {}, event = 'BufEnter' },

@@ -6,9 +6,7 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 
 -- vim.api.nvim_command("autocmd VimResized * wincmd =") -- Resize splits on terminal resize
 vim.api.nvim_create_autocmd("VimResized", {
-	callback = function()
-		vim.cmd.wincmd("=")
-	end,
+	command = [[wincmd =]],
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { -- Delete trailing whitspaces
