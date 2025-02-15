@@ -50,6 +50,7 @@ if [ -f $h_vim ]; then
 	rm $h_vim
 fi
 ln -s $c_vim $h_vim
+echo "$num_symlinks: $h_vim -> $c_vim"
 num_symlinks=$((num_symlinks + 1))
 
 # Report total number of symlinks
