@@ -16,7 +16,7 @@ fi
 # Ensure the target directory exists
 mkdir -p "$TARGET_DIR"
 
-echo "List symlinks $TARGET_DIR -> $SOURCE_DIR"
+echo "Symlink list"
 # Loop through items in the source directory
 for dir in "$SOURCE_DIR"/*; do
 	# Skip if not a directory
@@ -30,8 +30,8 @@ for dir in "$SOURCE_DIR"/*; do
   target_path="$TARGET_DIR/$base_name"
 
   # Show the symlinks
-  echo "$num_symlinks: $target_path -> $dir"
   num_symlinks=$((num_symlinks + 1))
+  echo "$num_symlinks: $target_path -> $dir"
 
   # If the symlink already exists, skip it
   if [ -L "$target_path" ]; then
@@ -50,8 +50,8 @@ if [ -f $h_vim ]; then
 	rm $h_vim
 fi
 ln -s $c_vim $h_vim
-echo "$num_symlinks: $h_vim -> $c_vim"
 num_symlinks=$((num_symlinks + 1))
+echo "$num_symlinks: $h_vim -> $c_vim"
 
 # Report total number of symlinks
 echo "Total number of symlinks: $num_symlinks"
