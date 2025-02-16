@@ -1,0 +1,33 @@
+{
+    "keyboard": "idank/sweeq",
+    "keymap": "yrst",
+    "host_language": "spanish",
+    "layout": "LAYOUT_split_3x5_2",
+    "layers": [
+        [
+        "ES_P", "ES_L", "ES_W",         "ES_M",         "ES_Q", "ES_Z", "ES_F",         "ES_O",         "ES_U",    "ES_QUOT",
+        "ES_Y", "ES_R", "LALT_T(ES_S)", "LGUI_T(ES_T)", "ES_K", "ES_J", "RGUI_T(ES_N)", "RALT_T(ES_A)", "ES_E",    "ES_I",
+        "ES_G", "ES_X", "ES_C",         "ES_D",         "ES_V", "ES_B", "ES_H",         "ES_COMM",      "ES_SCLN", "ES_DOT",
+        "LT(3, KC_SPC)", "OSL(1)", "OSM(MOD_RCTL)", "MO(2)"
+        ], [
+        "S(ES_P)", "S(ES_L)", "S(ES_W)", "S(ES_M)", "S(ES_Q)", "S(ES_Z)", "S(ES_F)", "S(ES_O)", "S(ES_U)", "ES_DQUO",
+        "S(ES_Y)", "S(ES_R)", "S(ES_S)", "S(ES_T)", "S(ES_K)", "S(ES_J)", "S(ES_N)", "S(ES_A)", "S(ES_E)", "S(ES_I)", "S(ES_G)", "S(ES_X)", "S(ES_C)", "S(ES_D)", "S(ES_V)", "S(ES_B)", "S(ES_H)", "ES_LABK", "ES_COLN", "ES_RABK",
+        "KC_SPC", "KC_NO", "OSM(MOD_RCTL)", "KC_NO"
+        ], [
+        "KC_ESC",  "ES_AT",   "ES_HASH", "ES_DLR",  "ES_BULT", "ES_GRV",  "ES_UNDS", "ES_ASTR", "KC_BSPC", "KC_DEL",
+        "KC_TAB",  "ES_BSLS", "ES_LPRN", "ES_RPRN", "ES_EXLM", "ES_ACUT", "ES_MINS", "ES_PLUS", "ES_EQL",  "KC_ENT",
+        "ES_PIPE", "ES_PERC", "ES_LCBR", "ES_RCBR", "ES_AMPR", "ES_DIAE", "ES_LBRC", "ES_RBRC", "ES_SLSH", "ES_QUES",
+        "QK_LLCK", "OSM(MOD_LSFT)", "OSM(MOD_RCTL)", "TO(4)"
+        ], [
+        "KC_ESC", "KC_HOME", "KC_UP",   "KC_END",  "ES_NTIL", "QK_BOOT", "ES_IEXL",         "ES_IQUE",           "KC_BSPC", "KC_DEL",
+        "KC_TAB", "KC_LEFT", "KC_DOWN", "KC_RGHT", "ES_CCED", "ES_TILD", "KC_KB_VOLUME_UP", "KC_KB_VOLUME_DOWN", "ES_TILD", "KC_ENT",
+		"ES_1",   "ES_2",    "ES_3",    "ES_4",    "ES_5",    "ES_6",    "ES_7",            "ES_8",              "ES_9",    "ES_0",
+        "TO(0)", "OSM(MOD_LSFT)", "OSM(MOD_RCTL)", "QK_LLCK"
+        ], [
+        "ES_Q", "ES_W", "ES_E",         "ES_R",         "ES_T", "ES_Y", "ES_U",         "ES_I",         "ES_O",   "ES_P",
+        "ES_A", "ES_S", "LALT_T(ES_D)", "LGUI_T(ES_F)", "ES_G", "ES_H", "RGUI_T(ES_J)", "RALT_T(ES_K)", "ES_L",   "ES_NTIL",
+        "ES_Z", "ES_X", "ES_C",         "ES_V",         "ES_B", "ES_N", "ES_M",         "ES_COMM",      "ES_DOT", "ES_MINS",
+        "LT(3, KC_SPC)", "OSM(MOD_LSFT)", "OSM(MOD_RCTL)", "MO(2)"
+        ]
+    ]
+}

@@ -17,11 +17,11 @@ g x c d v b h , ; .
 
 <details><summary>With a generic keyboard</summary>
 
-> [!important]
+> [!Important]
 > This is only a software implementation.<br>
 > When another keyboard is attached it will behave the same and any programmable keyboard may behave strangely.
 
-> [!tip]
+> [!Tip]
 > Remap CapsLock to Ctrl/Esc.
 
 ## What it does
@@ -42,7 +42,7 @@ If desired, another file can be edited from the same directory. Just remember th
 xkb_symbols "yrst"
 ```
 
-It is the name of the mapping.
+It's the name of the mapping.
 
 And change it to your preferences
 
@@ -114,7 +114,7 @@ xkb_symbols "yrst" {
 
 ### Setting the layout
 
-> [!tip]
+> [!Tip]
 > This command will activate the layout, prepare the set of your current one just in case.
 
 ```
