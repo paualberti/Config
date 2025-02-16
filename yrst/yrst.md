@@ -17,21 +17,23 @@ g x c d v b h , ; .
 
 <details><summary>With a generic keyboard</summary>
 
-> [!Important]
+> [!IMPORTANT]
 > This is only a software implementation.<br>
 > When another keyboard is attached it will behave the same and any programmable keyboard may behave strangely.
 
-> [!Tip]
+> [!TIP]
 > Remap CapsLock to Ctrl/Esc.
 
 ## What it does
 
-Maintains normal numbers and symbols, Modifies alpha keys, RALT -> BackSpace
+Maintains us ansi numbers and symbols, Modifies alpha keys, RALT -> BackSpace
 
 File to edit (sudo access is required)
 
+Open with vim
+
 ```
-sudo vim /usr/share/X11/xkb/symbols/us # or any editor of choice
+sudo vim /usr/share/X11/xkb/symbols/us
 ```
 
 If desired, another file can be edited from the same directory. Just remember that the file name is the language name when setting the layout.
@@ -43,8 +45,6 @@ xkb_symbols "yrst"
 ```
 
 It's the name of the mapping.
-
-And change it to your preferences
 
 ### Layout
 
@@ -114,7 +114,7 @@ xkb_symbols "yrst" {
 
 ### Setting the layout
 
-> [!Tip]
+> [!TIP]
 > This command will activate the layout, prepare the set of your current one just in case.
 
 ```
@@ -127,6 +127,23 @@ If you want it to be a permanent layout feel free to change the name yrst for an
 
 <details><summary>Using qmk with a programmable keyboard</summary>
 
-In the future I will be adding my 34 key layout for the idank/sweeq, a variant of the ferris/sweep, right below.
+### Set the qmk environment
+
+```
+sudo apt install -y git python3-pip
+python3 -m pip install --user qmk
+echo 'PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc && source $HOME/.bashrc
+qmk setup
+qmk config user.keyboard=idank/sweeq
+qmk config user.keymap=yrst
+qmk new-keymap
+qmk compile -e CONVERT_TO=rp2040_ce
+```
+
+### Link the keymap directory
+
+```
+cp -r $HOME/Config/yrst/ /home/paualberti/qmk_firmware/keyboards/idank/sweeq/keymaps/
+```
 
 </details>
