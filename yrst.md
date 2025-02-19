@@ -1,6 +1,6 @@
 # Keyboard Configuration
 
-## Ergonomic keyboard layout with vim in mind
+## Ergonomic keyboard layout based on the colemak-qi layout
 
 Alternative layouts [document](https://docs.google.com/document/d/1Ic-h8UxGe5-Q0bPuYNgE3NoWiI8ekeadvSQ5YysrwII/edit?tab=t.0)<br>
 Analysed with [keysolve](https://clemenpine.github.io/keysolve-web/)<br>
@@ -13,16 +13,12 @@ g x c d v b h , ; .
 
 ---
 
-## Get it for yourself
-
-<details><summary>With a generic keyboard</summary>
-
-> [!IMPORTANT]
-> This is only a software implementation.<br>
-> When another keyboard is attached it will behave the same and any programmable keyboard may behave strangely.
+## To use it
 
 > [!TIP]
-> Remap CapsLock to Ctrl/Esc.
+> When using a generic keyboard remap Caps Lock to either Ctrl or Escape.
+
+<details><summary>With a generic keyboard</summary>
 
 ## What it does
 
@@ -36,7 +32,7 @@ Open with vim
 sudo vim /usr/share/X11/xkb/symbols/us
 ```
 
-If desired, another file can be edited from the same directory. Just remember that the file name is the language name when setting the layout.
+If desired, another file can be edited from the same directory. The file name is the language name needed to set the layout.
 
 ### Look for
 
@@ -114,14 +110,11 @@ xkb_symbols "yrst" {
 
 ### Setting the layout
 
-> [!TIP]
-> This command will activate the layout, prepare the set of your current one just in case.
-
 ```
 setxkbmap -layout us -variant yrst
 ```
 
-If you want it to be a permanent layout feel free to change the name yrst for an existing one after solving the repeated layout issue.
+If you want it to be a permanent layout it can be done by substituting an existing layout, such as "basic" or "colemak"
 
 </details>
 
@@ -140,10 +133,10 @@ qmk new-keymap
 qmk compile -e CONVERT_TO=rp2040_ce
 ```
 
-### Link the keymap directory
+### Copy the keymap into the corresponding folder
 
 ```
-cp -r $HOME/Config/yrst/ /home/paualberti/qmk_firmware/keyboards/idank/sweeq/keymaps/
+cp -r $HOME/Config/yrst/ $HOME/qmk_firmware/keyboards/idank/sweeq/keymaps/
 ```
 
 </details>
