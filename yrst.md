@@ -13,20 +13,22 @@ g x c d v b h , ; .
 
 ---
 
-## To use it
+## How to use the layout
 
 > [!TIP]
 > When using a generic keyboard remap Caps Lock to either Ctrl or Escape.
 
 <details><summary>With a generic keyboard</summary>
 
-## What it does
+### What it does
 
-Maintains us ansi numbers and symbols, Modifies alpha keys, RALT -> BackSpace
+* Maintains us ansi numbers and symbols
+* Modifies alpha keys (letters)
+* RALT becomes BackSpace
+
+### What to do
 
 File to edit (sudo access is required)
-
-Open with vim
 
 ```
 sudo vim /usr/share/X11/xkb/symbols/us
@@ -34,17 +36,11 @@ sudo vim /usr/share/X11/xkb/symbols/us
 
 If desired, another file can be edited from the same directory. The file name is the language name needed to set the layout.
 
-### Look for
-
-```
-xkb_symbols "yrst"
-```
-
-It's the name of the mapping.
-
 ### Layout
 
 <details><summary>Layout Configuration</summary>
+
+The name of the layout is yrst
 
 ```
 partial alphanumeric_keys
@@ -108,13 +104,17 @@ xkb_symbols "yrst" {
 ```
 </details>
 
-### Setting the layout
+### Activate the layout
 
 ```
 setxkbmap -layout us -variant yrst
 ```
 
-If you want it to be a permanent layout it can be done by substituting an existing layout, such as "basic" or "colemak"
+#### To make it a default in your system
+
+1 Change the name from yrst to an existing one, i.e "colemak".
+2 Select that layout from within the settings gui.
+3 Restart the session, restart or logout and login.
 
 </details>
 
@@ -138,5 +138,7 @@ qmk compile -e CONVERT_TO=rp2040_ce
 ```
 cp -r $HOME/Config/yrst/ $HOME/qmk_firmware/keyboards/idank/sweeq/keymaps/
 ```
+
+This keymap is by default expecting a computer set to spanish. The only file that needs to be changed if language is set to english is 'keymap.c'
 
 </details>
