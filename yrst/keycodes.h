@@ -23,7 +23,6 @@
 #define LT_SPC  LT(_NUM, KC_SPC)
 
 /* #define TO_HOME TO(_HOME) */
-#define TO_HOME TO(_HOME)
 #define TO_BASE TO(_BASE)
 #define TO_QWTY TO(_QWTY)
 

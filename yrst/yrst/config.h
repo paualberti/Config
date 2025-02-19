@@ -13,9 +13,9 @@
 
 /* Tap Hold Settings */
 
-#define PERMISSIVE_HOLD
-#define QUICK_TAP_TERM 100
-#define TAPPING_TERM 150
+/* #define PERMISSIVE_HOLD */
+/* #define QUICK_TAP_TERM 100 */
+/* #define TAPPING_TERM 150 */
 
 /* Mouse settings (Defaults converted for 144Hz) */
 
