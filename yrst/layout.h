@@ -123,11 +123,11 @@
 
 #define _GLOB_LAYOUT \
 /*   ,-------------------------------------------------.    ,-------------------------------------------------.   */\
-/*   |         | HOME    | UP      | END     | WBAK    |    | BOOT    | F7      | F8      | F9      | F10     |   */\
-       KC_NO   , KC_HOME , KC_UP   , KC_END  , KC_WBAK ,      QK_BOOT , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,     \
+/*   |         | MS BTN1 | MS UP   | MS BTN2 | WBAK    |    | BOOT    | F7      | F8      | F9      | F10     |   */\
+       KC_NO   , MS_BTN1 , MS_UP   , MS_BTN2 , KC_WBAK ,      QK_BOOT , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,     \
 /*   |-------------------------------------------------|    |-------------------------------------------------|   */\
-/*   |         | LEFT    | DOWN    | RGHT    | WFWD    |    |         | F4      | F5      | F6      | F11     |   */\
-       TO_BASE , KC_LEFT , KC_DOWN , KC_RGHT , KC_WFWD ,      KC_VOLU , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,     \
+/*   |         | MS LEFT | MS DOWN | MS RGHT | WFWD    |    |         | F4      | F5      | F6      | F11     |   */\
+       TO_BASE , MS_LEFT , MS_DOWN , MS_RGHT , KC_WFWD ,      KC_VOLU , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,     \
 /*   |-------------------------------------------------|    |-------------------------------------------------|   */\
 /*   |         | MS LEFT | MS UP   | MS DOWN | MS RGHT |    |         | F1      | F2      | F3      | F12     |   */\
        TO_QWTY , MS_WHLL , MS_WHLU , MS_WHLD , MS_WHLR ,      KC_VOLD , KC_F1   , KC_F2   , KC_F3   , KC_F12  ,     \
