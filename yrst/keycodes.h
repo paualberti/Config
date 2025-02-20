@@ -19,10 +19,10 @@
 #define MT_N MT(MOD_RGUI, KC_N)
 #define MT_A MT(MOD_RALT, KC_A)
 
-/* Layer MT */
+/* Layer switching */
 #define LT_SPC  LT(_NUM, KC_SPC)
 
-/* #define TO_HOME TO(_HOME) */
+// #define TO_HOME TO(_HOME)
 #define TO_BASE TO(_BASE)
 #define TO_QWTY TO(_QWTY)
 

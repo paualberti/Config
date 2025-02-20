@@ -107,13 +107,13 @@
 
 #define _NUM_LAYOUT \
 /*   ,-------------------------------------------------.    ,-------------------------------------------------.   */\
-/*   | NUM     | ·       | ¿       | ¡       | PSCR    |    | +       | P7 HOME | P8 UP   | P9 PGUP | BSPC    |   */\
+/*   | NUM     | ·       | ¿       | ¡       | PSCR    |    | +       | 7 HOME  | 8 UP    | 9 PGUP  | BSPC    |   */\
        KC_NUM  , ES_BULT , ES_IQUE , ES_IEXL , KC_PSCR ,      KC_PPLS , KC_P7   , KC_P8   , KC_P9   , KC_BSPC ,     \
 /*   |-------------------------------------------------|    |-------------------------------------------------|   */\
-/*   |         | ¨       | `       | ´       | €       |    | P0 INS  | P4 LEFT | P5      | P6 RGHT | PENT    |   */\
-       KC_NO   , ES_DIAE , ES_GRV  , ES_ACUT , ES_EUR  ,      KC_P0   , KC_P4   , KC_P5   , KC_P6   , KC_PENT ,     \
+/*   | CAPS    | ¨       | `       | ´       | €       |    | 0 INS   | P LEFT  | 5      |  6 RGHT  | ENT     |   */\
+       KC_CAPS , ES_DIAE , ES_GRV  , ES_ACUT , ES_EUR  ,      KC_P0   , KC_P4   , KC_P5   , KC_P6   , KC_ENT  ,     \
 /*   |-------------------------------------------------|    |-------------------------------------------------|   */\
-/*   |         |         | Ç       | Ñ       |         |    | -       | P1 END  | P2 DOWN | P3 PGDN | . DEL   |   */\
+/*   |         |         | Ç       | Ñ       |         |    | -       | 1 END   | 2 DOWN  | 3 PGDN  | . DEL   |   */\
        KC_NO   , KC_NO   , ES_CCED , ES_NTIL , KC_NO   ,      KC_PMNS , KC_P1   , KC_P2   , KC_P3   , KC_PDOT ,     \
 /*   `-------------------------------------------------|    |-------------------------------------------------'   */\
 /*                                 |         |         |    |         |         |                                 */\

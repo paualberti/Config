@@ -139,6 +139,4 @@ qmk compile -e CONVERT_TO=rp2040_ce
 cp -r $HOME/Config/yrst/ $HOME/qmk_firmware/keyboards/idank/sweeq/keymaps/
 ```
 
-This keymap is by default expecting a computer set to spanish. The only file that needs to be changed if language is set to english is 'keymap.c'
-
 </details>
