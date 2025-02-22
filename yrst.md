@@ -130,13 +130,12 @@ qmk setup
 qmk config user.keyboard=idank/sweeq
 qmk config user.keymap=yrst
 qmk new-keymap
+```
+
+### Compile for the ferris sweep with a sea picro micro-controller
+
+```
 qmk compile -e CONVERT_TO=rp2040_ce
-```
-
-### Copy the keymap into the corresponding folder
-
-```
-cp -r $HOME/Config/yrst/ $HOME/qmk_firmware/keyboards/idank/sweeq/keymaps/
 ```
 
 </details>

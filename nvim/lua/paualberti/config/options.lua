@@ -18,7 +18,7 @@ end
 
 -- Appearance
 vim.o.breakindent = true -- Indent wrapped lines to match line start
-vim.o.cursorline = true -- Highlight current line
+vim.o.cursorline = false -- Highlight current line
 vim.o.linebreak = true -- Wrap long lines at 'breakat' (if 'wrap' is set)
 vim.o.number = true -- Show line numbers
 vim.o.relativenumber = true -- Show line numbers

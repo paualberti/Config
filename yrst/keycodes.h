@@ -22,15 +22,17 @@
 /* Layer switching */
 #define LT_SPC  LT(_NUM, KC_SPC)
 
-// #define TO_HOME TO(_HOME)
-#define TO_BASE TO(_BASE)
+#define TO_HOME TO(_HOME)
 #define TO_QWTY TO(_QWTY)
 
-#define OSL_SYM OSL(_SYM)
 #define OSL_SIM OSL(_SIM)
-
 #define TO_NUM  TO(_NUM)
 #define TO_GLOB TO(_GLOB)
 
-/* Symbols */
+#define TG_NUM TG(_NUM)
+#define TG_GLOB TG(_GLOB)
+
+/* Extras */
 #define ES_EUR ALGR(ES_E)
+#define OMEGA ALGR(S(ES_Q))
+#define SFT_TAB S(KC_TAB)

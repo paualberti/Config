@@ -37,12 +37,6 @@ nnoremap <C-Down> <C-w>5-
 nnoremap <C-Right> <C-w>5>
 nnoremap <C-Left> <C-w>5<
 
-" Better navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Rename in visual mode
 vnoremap <leader>rf "hy:%s/<C-r>h/
 vnoremap <leader>rl "hy:s/<C-r>h/

@@ -23,24 +23,16 @@
 // #include "masks/lily58.h"
 // #include "masks/crkbd.h"
 
-// enum layer_number { _HOME, _SYM, _BASE, _MAJ, _QWTY, _SIM, _NUM, _GLOB };
-enum layer_number { _BASE, _MAJ, _QWTY, _SIM, _NUM, _GLOB };
+// enum layer_number { _HOME, _SYM, _HOME, _MAJ, _QWTY, _SIM, _NUM, _GLOB };
+enum layer_number { _HOME, _MAJ, _QWTY, _NUM, _SIM, _GLOB };
 
 // see https://github.com/ChuseCubr/mini-ryoku for layout details
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    // [_HOME] = LAYOUT_mask(_HOME_LAYOUT),
-    // [_SYM] = LAYOUT_mask(_SYM_LAYOUT),
-    // [_BASE] = LAYOUT_mask(_BASE_LAYOUT),
-    // [_MAJ] = LAYOUT_mask(_MAJ_LAYOUT),
-    // [_QWTY] = LAYOUT_mask(_QWTY_LAYOUT),
-    // [_SIM] = LAYOUT_mask(_SIM_LAYOUT),
-    // [_NUM] = LAYOUT_mask(_NUM_LAYOUT),
-    // [_GLOB] = LAYOUT_mask(_GLOB_LAYOUT),
-    [_BASE] = LAYOUT_mask(_BASE_LAYOUT),
-    [_MAJ] = LAYOUT_mask(_MAJ_LAYOUT),
+    [_HOME] = LAYOUT_mask(_HOME_LAYOUT),
+    [_MAJ]  = LAYOUT_mask(_MAJ_LAYOUT),
     [_QWTY] = LAYOUT_mask(_QWTY_LAYOUT),
-    [_SIM] = LAYOUT_mask(_SIM_LAYOUT),
-    [_NUM] = LAYOUT_mask(_NUM_LAYOUT),
+    [_NUM]  = LAYOUT_mask(_NUM_LAYOUT),
+    [_SIM]  = LAYOUT_mask(_SIM_LAYOUT),
     [_GLOB] = LAYOUT_mask(_GLOB_LAYOUT),
 };
